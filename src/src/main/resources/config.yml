@@ -1,0 +1,130 @@
+debug: true
+
+# ═══ SnowpartingBladePower — XP costs ═══
+snowblade:
+  xp:
+    slash: 3
+    step: 6
+    drive: 9
+    arctic: 12
+
+# ═══ Tu Tiên Giả — CultivatorPower ═══
+cultivator:
+
+  # XP cost mỗi chiêu (điểm XP raw, không phải level)
+  xp:
+    sword-qi: 3
+    sword-qi-sneak: 6
+    seal: 5
+    pressure: 6
+    meditate: 0
+    thunder-array: 8
+    judgment: 15
+
+  # Tu Vi thresholds (level cần để đột phá)
+  stage:
+    truc-co: 10
+    kim-dan: 20
+    nguyen-anh: 30
+    hoa-than: 40
+    dai-thua: 50
+
+  # Damage config
+  dmg:
+    sword-qi-base: 8.0
+    sword-qi-per-stage: 2.0
+    seal: 10.0
+    pressure-max: 18.0
+    thunder-sword: 14.0
+    judgment-ratio: 0.45
+
+  # Phục Khí Thuật
+  meditate-heal-hp: 6
+  meditate-reward-xp: 10
+
+# ═══ Hoa Sơn Kiếm Pháp — HuaShanPower ═══
+huashan:
+
+  # XP threshold để MỞ KHÓA từng slot (vĩnh viễn, không giảm khi mất XP)
+  # Không tốn XP khi DÙNG chiêu — chỉ tốn để unlock slot mới
+  unlock:
+    slot1: 30    # 24 Chiêu Mai Hoa / Mai Hoa Bộ
+    slot2: 50    # Chấn Thiên Kiếm / Lạc Hoa Kiếm Pháp
+    slot3: 70    # Mai Hoa Ấn / Vô Hằng Kiếm
+    slot4: 90    # 72 Chiêu Mai Hoa / Bách Hoa Tự Tại Kiếm
+    slot5: 100   # Kiếm Ý (ultimate)
+
+  dmg:
+    tam-tai: 5.0           # mỗi tia trong 3 tia (x3 = tối đa 15)
+    luc-hop-reduction: 0.35   # % giảm dmg nhận khi buff active
+    luc-hop-duration: 4.0     # giây
+    nhi-thap-tu-hit: 4.0      # mỗi hit trong dash-chém (5 hit)
+    nhi-thap-tu-hits: 5
+    chan-thien: 9.0
+    chan-thien-stun: 1.2      # giây slowness nặng mô phỏng "phá thế thủ"
+    lac-hoa-reduction: 0.4    # % giảm dmg gây ra bởi địch trong vùng
+    lac-hoa-radius: 4.0
+    lac-hoa-duration: 5.0
+    mai-hoa-an: 16.0
+    mai-hoa-an-armor-pierce: 0.5   # % bỏ qua giáp
+    vo-hang: 22.0
+    that-thap-nhi-hit: 5.0
+    that-thap-nhi-hits: 9
+    bach-hoa-hit: 4.5
+    bach-hoa-hits: 7
+    kiem-y-radius: 6.0
+    kiem-y-dmg-per-tick: 3.0
+    kiem-y-duration: 4.0
+    kiem-y-charge: 1.8        # giây charge trước khi release
+
+  # Tử Hà Thần Công — passive hồi nhẹ khi không combat
+  passive:
+    regen-interval: 60        # ticks giữa mỗi lần hồi
+    regen-amount: 1.0         # HP hồi mỗi lần
+    max-hp-bonus: 2.0          # Hỗn Nguyên Công — bonus max HP (1 tim)
+
+# ═══ DemonLordPower ═══
+demonlord:
+  dmg:
+    inferno-blade: 16.0
+    summon-soul: 9.0
+    prison-tick: 4.0
+    prison-release: 14.0
+    devour-kill-threshold: 0.25
+    devour-heal: 6.0
+    devour-damage: 12.0
+    shadow-step: 18.0
+    judgment-base: 25.0
+    judgment-hp-ratio: 0.30
+    fury-aoe: 12.0
+
+# ═══ GravityPower ═══
+gravity:
+  dmg:
+    pull: 6.0
+    push: 8.0
+    crush: 10.0
+    field-tick: 3.0
+    collapse-base: 15.0
+    collapse-hp-ratio: 0.20
+
+# ═══ PortalPower — Void / Arcane Gate ═══
+portal:
+  xp:
+    gate: 20
+
+cloud:
+  xp:
+    storm: 25
+
+vampire:
+  xp:
+    moon: 20
+
+poison:
+  xp:
+    deluge: 22
+
+air:
+  xp:
+    collapse: 22
