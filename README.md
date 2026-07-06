@@ -1,6 +1,7 @@
 # ✨ MagicAbilities - Minecraft Plugin
 
 > **Transform your Minecraft server with 50+ spectacular superpowers!**
+> **Custom orders accepted for SMP!**
 
 This Spigot plugin adds a variety of amazing superpowers through the Spigot API, allowing players to harness elemental forces, mystical abilities, and gravity-defying powers.
 
