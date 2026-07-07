@@ -947,3 +947,4 @@ public class CultivatorPower extends Power implements IdlePower, Removeable {
     private int stageNeeded(int slot) { return slot + 1; }
 
 }
+

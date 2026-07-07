@@ -841,3 +841,4 @@ public class PhoenixPower extends Power implements IdlePower, Removeable {
                          -v.getX()*Math.sin(r) + v.getZ()*Math.cos(r));
     }
 }
+

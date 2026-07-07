@@ -581,3 +581,4 @@ public class CloudPower extends Power implements IdlePower, Removeable {
         particleApi.spawnColoredParticles(loc, C_SKY,   1.1f, count / 3, 0.5, 0.3, 0.5);
     }
 }
+

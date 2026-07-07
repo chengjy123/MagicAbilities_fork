@@ -573,3 +573,4 @@ public class LightningPower extends Power implements IdlePower, Removeable {
         return v.normalize().multiply(radius * r.nextDouble());
     }
 }
+

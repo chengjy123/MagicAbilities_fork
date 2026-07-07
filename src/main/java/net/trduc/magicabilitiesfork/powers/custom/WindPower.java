@@ -493,3 +493,4 @@ public class WindPower extends Power implements IdlePower, Removeable {
         return cur;
     }
 }
+

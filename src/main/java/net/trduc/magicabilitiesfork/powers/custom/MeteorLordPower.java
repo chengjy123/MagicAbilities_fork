@@ -666,3 +666,4 @@ public class MeteorLordPower extends Power implements IdlePower, Removeable {
     }
 
 }
+

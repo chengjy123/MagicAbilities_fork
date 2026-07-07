@@ -558,3 +558,4 @@ public class NaturePower extends Power implements IdlePower, Removeable {
         return NATURE_BIOMES.contains(biome);
     }
 }
+

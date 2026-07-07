@@ -508,3 +508,4 @@ public class TwilightMirage extends Power implements IdlePower {
         return p.getWorld().isClearWeather();
     }
 }
+

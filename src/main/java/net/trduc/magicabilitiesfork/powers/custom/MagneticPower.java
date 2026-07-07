@@ -420,3 +420,4 @@ public class MagneticPower extends Power implements IdlePower {
         particleApi.spawnColoredParticles(loc, C_WHITE,  3.5f, 2,         0.15, 0.15, 0.15);
     }
 }
+

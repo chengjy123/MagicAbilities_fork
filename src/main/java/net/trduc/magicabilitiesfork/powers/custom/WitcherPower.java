@@ -618,3 +618,4 @@ public class WitcherPower extends Power implements IdlePower, Removeable {
         }.runTask(magicPlugin);
     }
 }
+

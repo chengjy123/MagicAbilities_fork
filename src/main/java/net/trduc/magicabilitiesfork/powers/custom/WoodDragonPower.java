@@ -726,3 +726,4 @@ public class WoodDragonPower extends Power implements IdlePower, Removeable {
         }
     }
 }
+

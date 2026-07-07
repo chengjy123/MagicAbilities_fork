@@ -322,3 +322,4 @@ public final class PowerUtils {
         return magicPlugin.getConfig().getBoolean(path, defaultVal);
     }
 }
+

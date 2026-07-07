@@ -44,5 +44,6 @@ public enum PowerType {
     SOUND,
     SPIKE,
     LUNAR,
-    TEST
+    COMICTEST
 }
+

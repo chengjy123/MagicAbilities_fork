@@ -8,3 +8,4 @@ public class DeathExecute extends Execute{
         super(event, player);
     }
 }
+

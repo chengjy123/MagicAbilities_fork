@@ -406,7 +406,6 @@ public class SoundPower extends Power implements IdlePower, Removeable {
 
                         applyDomainDebuffs(p, center, (int) remaining);
 
-
                         if (i % 2 == 0) {
                             int borderPts = 56;
                             for (int b = 0; b < borderPts; b++) {
@@ -486,3 +485,4 @@ public class SoundPower extends Power implements IdlePower, Removeable {
         }
     }
 }
+

@@ -514,3 +514,4 @@ public class ShockwavePower extends Power implements IdlePower, Removeable {
         }
     }
 }
+

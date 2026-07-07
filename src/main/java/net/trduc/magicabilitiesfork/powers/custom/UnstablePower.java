@@ -324,3 +324,4 @@ public class UnstablePower extends WarpPower implements IdlePower {
         }
     }
 }
+

@@ -414,3 +414,4 @@ public class EarthPower extends Power implements IdlePower, Removeable {
         particleApi.spawnColoredParticles(loc, C_SAND,  2.5f, 2,         0.2, 0.2, 0.2);
     }
 }
+

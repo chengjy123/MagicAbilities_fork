@@ -580,3 +580,4 @@ public class HuaShanPower extends Power implements IdlePower, Removeable {
     }
 
 }
+

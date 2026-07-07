@@ -8,3 +8,4 @@ public class InteractedOnByExecute extends Execute{
         super(event, player);
     }
 }
+

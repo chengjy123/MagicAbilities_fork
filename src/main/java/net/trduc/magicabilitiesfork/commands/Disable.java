@@ -35,3 +35,4 @@ public class Disable implements CommandExecutor, TabCompleter {
         return new ArrayList<>();
     }
 }
+

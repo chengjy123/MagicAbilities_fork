@@ -820,3 +820,4 @@ public class DemonLordPower extends Power implements IdlePower, Removeable {
     }
 
 }
+

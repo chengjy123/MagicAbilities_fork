@@ -162,3 +162,4 @@ public class ShogunPower extends Power implements IdlePower {
         }
     }
 }
+

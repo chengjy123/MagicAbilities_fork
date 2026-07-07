@@ -6,3 +6,4 @@ import org.bukkit.scheduler.BukkitRunnable;
 public interface IdlePower {
     BukkitRunnable executeIdle(IdleExecute ex);
 }
+

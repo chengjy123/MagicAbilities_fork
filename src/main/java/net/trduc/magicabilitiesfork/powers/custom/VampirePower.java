@@ -586,3 +586,4 @@ public class VampirePower extends Power implements IdlePower, Removeable {
         return !(t < 12300 || t > 23850);
     }
 }
+

@@ -97,3 +97,4 @@ public class Setpower implements CommandExecutor, TabCompleter {
         if (val.regionMatches(true, 0, input, 0, input.length()) || input.isEmpty()) list.add(val);
     }
 }
+

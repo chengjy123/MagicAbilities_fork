@@ -8,3 +8,4 @@ public class GuiManager {
         this.plugin = plugin;
     }
 }
+

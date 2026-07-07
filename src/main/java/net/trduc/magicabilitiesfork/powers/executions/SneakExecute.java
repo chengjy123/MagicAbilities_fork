@@ -8,3 +8,4 @@ public class SneakExecute extends Execute{
         super(event, player);
     }
 }
+

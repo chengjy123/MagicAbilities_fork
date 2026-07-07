@@ -70,3 +70,4 @@ public class PlayerData {
         this.auraEnabled = auraEnabled;
     }
 }
+

@@ -107,26 +107,24 @@ public class LunarPower extends Power implements IdlePower, Removeable {
                         blade.teleport(blade.getLocation().add(finalDir.clone().multiply(1.5)));
                         Location loc = blade.getLocation();
 
-                        // Horizontal crescent on XZ plane, width = 3.5 blocks
-                        // right = perpendicular to travel direction on XZ plane
                         Vector flatDir = finalDir.clone().setY(0).normalize();
                         Vector right = rotateY(flatDir, 90).normalize();
-                        final double HALF_WIDTH = 1.75; // 3.5 / 2
+                        final double HALF_WIDTH = 1.75;
                         final int POINTS = 11;
-                        final double OPEN_DEG = 150.0; // arc opening angle
+                        final double OPEN_DEG = 150.0;
                         for (int i = 0; i < POINTS; i++) {
-                            double t2 = (double) i / (POINTS - 1); // 0..1
+                            double t2 = (double) i / (POINTS - 1);
                             double arcRad = Math.toRadians(-OPEN_DEG / 2.0 + t2 * OPEN_DEG);
-                            // outer edge: radius = HALF_WIDTH
+
                             double ox = Math.sin(arcRad) * HALF_WIDTH;
-                            double oz = (1.0 - Math.cos(arcRad)) * HALF_WIDTH * 0.55; // forward bow
+                            double oz = (1.0 - Math.cos(arcRad)) * HALF_WIDTH * 0.55;
                             Location outer = loc.clone()
                                     .add(right.clone().multiply(ox))
                                     .add(flatDir.clone().multiply(oz));
                             Color col = LUNAR_COLS[i % LUNAR_COLS.length];
                             float size = (i == POINTS / 2) ? 1.8f : 1.4f;
                             particleApi.spawnColoredParticles(outer, col, size, 1, 0.02, 0.02, 0.02);
-                            // inner edge (slightly smaller radius, offset forward to create crescent thickness)
+
                             double ix = Math.sin(arcRad) * HALF_WIDTH * 0.75;
                             double iz = (1.0 - Math.cos(arcRad)) * HALF_WIDTH * 0.55 + 0.3;
                             Location inner = loc.clone()
@@ -137,7 +135,6 @@ public class LunarPower extends Power implements IdlePower, Removeable {
                         if (t % 2 == 0)
                             particleApi.spawnColoredParticles(loc, C_SILVER, 1.0f, 2, 0.06, 0.06, 0.06);
 
-                        // Hitbox spans the full 3.5 block width
                         for (Entity e : loc.getWorld().getNearbyEntities(loc, HALF_WIDTH + 0.3, 1.0, HALF_WIDTH + 0.3)) {
                             if (e.equals(p) || e instanceof ArmorStand || hit.contains(e)) continue;
                             if (!(e instanceof LivingEntity)) continue;
@@ -397,31 +394,25 @@ public class LunarPower extends Power implements IdlePower, Removeable {
         p.getWorld().playSound(center, Sound.ENTITY_WARDEN_AMBIENT,       0.8f, 0.4f);
         p.getWorld().playSound(center, Sound.BLOCK_BEACON_ACTIVATE,       1.0f, 0.5f);
 
-
-
-        // Rings arranged tall with alternating large/small pattern (like the diagram)
-        // Each entry: {radius, yOffset}
-        // Pattern from bottom to top: alternating wide-narrow-wide
         double[][] rings = {
-                { 8,  0.0},   // base - medium
-                {20,  2.5},   // wide
-                { 8,  5.0},   // narrow
-                {24,  7.5},   // wider
-                {10, 10.0},   // narrow
-                {28, 12.5},   // widest
-                {10, 15.0},   // narrow
-                {22, 17.5},   // wide
-                { 8, 20.0},   // narrow
-                {18, 22.5},   // medium
-                { 6, 25.0},   // narrow
-                {14, 27.5},   // medium
-                { 5, 30.0},   // tip
+                { 8,  0.0},
+                {20,  2.5},
+                { 8,  5.0},
+                {24,  7.5},
+                {10, 10.0},
+                {28, 12.5},
+                {10, 15.0},
+                {22, 17.5},
+                { 8, 20.0},
+                {18, 22.5},
+                { 6, 25.0},
+                {14, 27.5},
+                { 5, 30.0},
         };
 
         int[] orbRings = {1, 3, 5, 7, 9};
 
         Set<Entity> damaged = new HashSet<>();
-
 
         for (int ri = 0; ri < rings.length; ri++) {
             final double[] ring = rings[ri];
@@ -467,18 +458,17 @@ public class LunarPower extends Power implements IdlePower, Removeable {
                     double yOff   = rings[ri][1];
                     Location ringCenter = center.clone().add(0, yOff, 0);
 
-
                     int ringSteps = (int)(radius * 7);
-                    // Small rings spin faster, large rings spin slower - more dynamic feel
+
                     double spinSpeed = radius < 12 ? 5.0 : (radius < 20 ? 3.0 : 2.0);
-                    // Alternate direction each ring
+
                     double spinDir = ri % 2 == 0 ? 1 : -1;
                     for (int layer = 0; layer < 2; layer++) {
                         double rOff = layer == 0 ? 0 : 0.2;
                         for (int i = 0; i < ringSteps; i++) {
                             double spin = spinDir * t * spinSpeed;
                             double a = Math.toRadians(i * (360.0 / ringSteps) + spin);
-                            // Color varies by ring size: small=purple/blue, large=white/silver, widest=gold
+
                             Color col;
                             if (layer == 1) { col = C_SILVER; }
                             else if (radius >= 24) { col = C_GOLD_MOON; }
@@ -491,7 +481,6 @@ public class LunarPower extends Power implements IdlePower, Removeable {
                         }
                     }
 
-
                     boolean hasOrbs = false;
                     for (int or2 : orbRings) { if (or2 == ri) { hasOrbs = true; break; } }
                     if (hasOrbs) {
@@ -501,7 +490,6 @@ public class LunarPower extends Power implements IdlePower, Removeable {
                             double orbAngle = Math.toRadians(spin + o * (360.0 / orbCount));
                             Location orb = ringCenter.clone().add(
                                     Math.cos(orbAngle) * radius, 0, Math.sin(orbAngle) * radius);
-
 
                             particleApi.spawnColoredParticles(orb, C_GOLD_MOON, 2.0f, 5, 0.0,  0.0,  0.0);
                             particleApi.spawnColoredParticles(orb, C_WHITE,     1.7f, 4, 0.0,  0.0,  0.0);
@@ -517,7 +505,6 @@ public class LunarPower extends Power implements IdlePower, Removeable {
                             if (t % 2 == 0) {
                                 particleApi.spawnColoredParticles(orb, C_BLUE_PALE, 1.0f, 3, 0.1, 0.1, 0.1);
                             }
-
 
                             for (Entity e : orb.getWorld().getNearbyEntities(orb, 1.4, 1.4, 1.4)) {
                                 if (e.equals(p) || e instanceof ArmorStand || !(e instanceof LivingEntity)) continue;
@@ -535,7 +522,6 @@ public class LunarPower extends Power implements IdlePower, Removeable {
                     }
                 }
 
-
                 for (int layer = 0; layer < 3; layer++) {
                     double a = Math.toRadians(t * 9 + layer * 120);
                     double h = (t % 30) * 0.55;
@@ -550,7 +536,6 @@ public class LunarPower extends Power implements IdlePower, Removeable {
                     }
                 }
 
-
                 if (t % 2 == 0) {
                     int borderPts = 90;
                     for (int b = 0; b < borderPts; b++) {
@@ -561,7 +546,6 @@ public class LunarPower extends Power implements IdlePower, Removeable {
                             particleApi.spawnColoredParticles(bl.clone().add(0, 0.6, 0), C_WHITE, 1.8f, 1, 0.01, 0.06, 0.01);
                     }
                 }
-
 
                 for (Entity e : center.getWorld().getNearbyEntities(center, 32, 16, 32)) {
                     if (e.equals(p) || e instanceof ArmorStand || !(e instanceof LivingEntity)) continue;
@@ -595,7 +579,6 @@ public class LunarPower extends Power implements IdlePower, Removeable {
                 {10, 10.0}, {28, 12.5}, {10, 15.0}, {22, 17.5},
                 { 8, 20.0}, {18, 22.5}, { 6, 25.0}, {14, 27.5}, { 5, 30.0}
         };
-
 
         new BukkitRunnable() {
             int t = 0;
@@ -634,7 +617,6 @@ public class LunarPower extends Power implements IdlePower, Removeable {
                                 col, size, 1, 0.01, 0.01, 0.01);
                     }
 
-
                     if (t % 3 == 0) {
                         double ta = Math.toRadians(t * 20 + ri * 40);
                         particleApi.spawnColoredParticles(
@@ -642,7 +624,6 @@ public class LunarPower extends Power implements IdlePower, Removeable {
                                 C_SILVER, 1.5f, 3, 0.05, 0.1, 0.05);
                     }
                 }
-
 
                 if (t % 8 == 0)
                     p.getWorld().playSound(center, Sound.BLOCK_AMETHYST_BLOCK_BREAK,
@@ -660,11 +641,9 @@ public class LunarPower extends Power implements IdlePower, Removeable {
         p.getWorld().playSound(center, Sound.ENTITY_WARDEN_SONIC_BOOM,    1.0f, 0.4f);
         p.getWorld().playSound(center, Sound.ITEM_TRIDENT_THUNDER,        0.9f, 0.6f);
 
-
         particleApi.spawnColoredParticles(center.clone().add(0, 1, 0), C_WHITE,     2.8f, 300, 18, 10, 18);
         particleApi.spawnColoredParticles(center.clone().add(0, 1, 0), C_GOLD_MOON, 2.4f, 200, 14,  8, 14);
         particleApi.spawnColoredParticles(center.clone().add(0, 1, 0), C_SILVER,    2.0f, 150, 10,  6, 10);
-
 
         new BukkitRunnable() {
             double r = 1;
@@ -682,7 +661,6 @@ public class LunarPower extends Power implements IdlePower, Removeable {
                 wave++;
             }
         }.runTaskTimer(magicPlugin, 0, 1);
-
 
         List<LivingEntity> inRange = new ArrayList<>();
         for (Entity e : center.getWorld().getNearbyEntities(center, 32, 16, 32)) {
@@ -769,3 +747,4 @@ public class LunarPower extends Power implements IdlePower, Removeable {
         return !(time < 12300 || time > 23850);
     }
 }
+

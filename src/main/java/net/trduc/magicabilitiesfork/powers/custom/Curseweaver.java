@@ -467,3 +467,4 @@ public class Curseweaver extends Power implements IdlePower, net.trduc.magicabil
         isInDomain = false;
     }
 }
+

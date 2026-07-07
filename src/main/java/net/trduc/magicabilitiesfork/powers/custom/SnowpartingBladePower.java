@@ -532,3 +532,4 @@ public class SnowpartingBladePower extends Power implements IdlePower, Removeabl
                 -v.getX() * Math.sin(rad) + v.getZ() * Math.cos(rad));
     }
 }
+

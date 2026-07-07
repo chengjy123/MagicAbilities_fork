@@ -8,3 +8,4 @@ public class ConsumeExecute extends Execute{
         super(event, player);
     }
 }
+

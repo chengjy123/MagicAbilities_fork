@@ -8,6 +8,7 @@ import net.trduc.magicabilitiesfork.data.PlayerData;
 import net.trduc.magicabilitiesfork.events.ExecutionEvents;
 import net.trduc.magicabilitiesfork.guis.AnimationManager;
 import net.trduc.magicabilitiesfork.guis.GuiManager;
+import net.trduc.magicabilitiesfork.commands.PowerteamOwnerCommands;
 import net.trduc.magicabilitiesfork.misc.ConfigMigrator;
 import net.trduc.magicabilitiesfork.misc.CooldownValidator;
 import net.trduc.magicabilitiesfork.misc.ParticleApi;
@@ -35,6 +36,7 @@ public final class MagicAbilitiesfork extends JavaPlugin {
     private DbManager dbManager;
     private static FileConfiguration config;
     public static MagicAbilitiesfork magicPlugin;
+    public net.trduc.magicabilitiesfork.guis.PowerTeamGui powerTeamGui;
 
     @Override
     public void onEnable() {
@@ -42,7 +44,6 @@ public final class MagicAbilitiesfork extends JavaPlugin {
         saveDefaultConfig();
         ConfigMigrator.migrate(this);
         config = getConfig();
-
 
         int pluginId = 32200;
         Metrics metrics = new Metrics(this, pluginId);
@@ -57,6 +58,11 @@ public final class MagicAbilitiesfork extends JavaPlugin {
         ExecutionEvents executionEvents = new ExecutionEvents();
         getServer().getPluginManager().registerEvents(new DataEventsHandler(dbManager, executionEvents), this);
         getServer().getPluginManager().registerEvents(executionEvents, this);
+        getServer().getPluginManager().registerEvents(new net.trduc.magicabilitiesfork.events.PowerTeamEvents(dbManager), this);
+
+        net.trduc.magicabilitiesfork.guis.PowerTeamGui ptGui = new net.trduc.magicabilitiesfork.guis.PowerTeamGui(dbManager);
+        this.powerTeamGui = ptGui;
+        getServer().getPluginManager().registerEvents(ptGui, this);
         registerCommand(new Binds(), "binds");
         registerCommand(new Destination(), "destination");
         registerCommand(new Setpower(), "setpower");
@@ -64,6 +70,9 @@ public final class MagicAbilitiesfork extends JavaPlugin {
         registerCommand(new Disable(), "disable");
         registerCommand(new Powerset(), "powerset");
         registerCommand(new Powersetaura(), "powersetaura");
+        registerCommand(new Combos(), "combos");
+        registerCommand(new PowerTeamCommand(), "powerteam");
+        registerCommand(new PowerteamOwnerCommands(), "powerteamowner");
         final GuiManager guiManager = new GuiManager(this);
         final AnimationManager animationManager = new AnimationManager(this, guiManager);
 
@@ -134,3 +143,4 @@ public final class MagicAbilitiesfork extends JavaPlugin {
         return YamlConfiguration.loadConfiguration(customConfigFile);
     }
 }
+

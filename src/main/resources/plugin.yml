@@ -25,3 +25,22 @@ commands:
   powersetaura:
     description: Toggle or set your power's idle aura particles on/off
     usage: /<command> [on|off]
+  combos:
+    description: Show optimized combos for a power
+    usage: /<command> [power]
+  powerteam:
+    description: Manage power teams (create/add/remove/list/info/requests/approve/deny/invite/accept/decline)
+    usage: /<command> <create|add|remove|list|info|requests|approve|deny|invite|accept|decline>
+  powerteamowner:
+    description: Owner/admin team management (transfer/disband/leave/coowner)
+    usage: /<command> <transfer|disband|leave|coowner>
+permissions:
+  magic.admin:
+    description: Admin-level permission for MagicAbilities
+    default: op
+  powerteam.owner:
+    description: PowerTeam owner permission
+    default: op
+  powerteam.coowner:
+    description: PowerTeam co-owner permission
+    default: false

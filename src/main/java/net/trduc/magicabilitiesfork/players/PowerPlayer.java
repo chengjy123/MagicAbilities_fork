@@ -91,3 +91,4 @@ public class PowerPlayer {
         this.auraEnabled = auraEnabled;
     }
 }
+

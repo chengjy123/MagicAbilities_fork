@@ -619,3 +619,4 @@ public class WitherPower extends Power implements IdlePower, Removeable {
     }
 
 }
+

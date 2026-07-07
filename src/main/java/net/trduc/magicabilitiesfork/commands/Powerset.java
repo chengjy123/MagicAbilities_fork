@@ -78,3 +78,4 @@ public class Powerset implements CommandExecutor, TabCompleter {
         return new ArrayList<>();
     }
 }
+

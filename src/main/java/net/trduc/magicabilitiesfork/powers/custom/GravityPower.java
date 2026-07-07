@@ -532,3 +532,4 @@ public class GravityPower extends Power implements IdlePower, Removeable {
         p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(bar + m));
     }
 }
+

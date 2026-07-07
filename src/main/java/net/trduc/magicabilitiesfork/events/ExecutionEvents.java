@@ -1,5 +1,6 @@
 package net.trduc.magicabilitiesfork.events;
 
+import net.trduc.magicabilitiesfork.MagicAbilitiesfork;
 import net.trduc.magicabilitiesfork.powers.Power;
 import net.trduc.magicabilitiesfork.powers.executions.*;
 import org.bukkit.ChatColor;
@@ -25,7 +26,6 @@ public class ExecutionEvents implements Listener {
 
     private final Map<UUID, Long> lastMoveMs = new ConcurrentHashMap<>();
     private static final long MOVE_THROTTLE_MS = 50;
-
 
     private final Map<UUID, Long> lastQuickToggleMs = new ConcurrentHashMap<>();
     private static final long QUICK_TOGGLE_COOLDOWN_MS = 500;
@@ -72,10 +72,52 @@ public class ExecutionEvents implements Listener {
 
     @EventHandler
     public void onDamageDealt(EntityDamageByEntityEvent event){
-        if (!(event.getDamager() instanceof Player)) return;
-        Player p = (Player) event.getDamager();
+
+        Player attackerPlayer = null;
+        if (event.getDamager() instanceof Player){
+            attackerPlayer = (Player) event.getDamager();
+        } else if (event.getDamager() instanceof org.bukkit.projectiles.Projectile){
+            org.bukkit.projectiles.Projectile proj = (org.bukkit.projectiles.Projectile) event.getDamager();
+            if (proj.getShooter() instanceof Player) attackerPlayer = (Player) proj.getShooter();
+        } else if (event.getDamager() instanceof org.bukkit.entity.Tameable){
+            org.bukkit.entity.Tameable t = (org.bukkit.entity.Tameable) event.getDamager();
+            if (t.getOwner() instanceof Player) attackerPlayer = (Player) t.getOwner();
+        }
+
+        if (attackerPlayer == null){
+
+            if (event.getDamager() instanceof Player) return;
+
+            return;
+        }
+
+        if (!(event.getEntity() instanceof Player)) {
+
+            Player p = attackerPlayer;
+            if (!players.containsKey(p)) return;
+            players.get(p).getPower().executePower(new DealDamageExecute(event, p));
+            return;
+        }
+
+        Player p = attackerPlayer;
+        Player target = (Player) event.getEntity();
         if (!players.containsKey(p)) return;
+
+        double originalDamage = event.getDamage();
+        boolean originalCancelled = event.isCancelled();
+
         players.get(p).getPower().executePower(new DealDamageExecute(event, p));
+
+        try {
+            String attackerTeam = MagicAbilitiesfork.magicPlugin.getDbManager().getPlayerTeam(p.getName());
+            String targetTeam = MagicAbilitiesfork.magicPlugin.getDbManager().getPlayerTeam(target.getName());
+            if (attackerTeam != null && attackerTeam.equals(targetTeam)){
+
+                if (event.isCancelled() != originalCancelled || event.getDamage() != originalDamage){
+                    event.setCancelled(true);
+                }
+            }
+        } catch (Exception ignored){}
     }
 
     @EventHandler
@@ -146,7 +188,6 @@ public class ExecutionEvents implements Listener {
         if (!players.containsKey(p)) return;
         event.setCancelled(false);
     }
-
 
     private boolean tryQuickTogglePower(Player p, long now) {
         Long lastToggle = lastQuickToggleMs.get(p.getUniqueId());

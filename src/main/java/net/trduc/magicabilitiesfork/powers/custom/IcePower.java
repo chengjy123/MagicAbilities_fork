@@ -547,3 +547,4 @@ public class IcePower extends Power implements IdlePower {
         }
     }
 }
+

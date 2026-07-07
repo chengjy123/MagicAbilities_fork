@@ -156,3 +156,4 @@ public class WarpPower extends Power implements IdlePower {
         return r;
     }
 }
+

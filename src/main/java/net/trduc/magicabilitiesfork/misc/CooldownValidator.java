@@ -121,3 +121,4 @@ public final class CooldownValidator {
         return DEFAULT_FALLBACK;
     }
 }
+

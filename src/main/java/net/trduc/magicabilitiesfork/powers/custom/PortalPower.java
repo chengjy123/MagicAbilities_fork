@@ -709,3 +709,4 @@ public class PortalPower extends Power implements IdlePower, Removeable {
         particleApi.spawnParticles(loc, Particle.PORTAL, count, 0.4, 0.4, 0.4, 1.0);
     }
 }
+

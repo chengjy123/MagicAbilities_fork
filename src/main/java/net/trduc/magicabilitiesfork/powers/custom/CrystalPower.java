@@ -461,3 +461,4 @@ public class CrystalPower extends Power implements IdlePower {
         particleApi.spawnColoredParticles(loc, C_WHITE,  4f,   2,         0.2, 0.2, 0.2);
     }
 }
+

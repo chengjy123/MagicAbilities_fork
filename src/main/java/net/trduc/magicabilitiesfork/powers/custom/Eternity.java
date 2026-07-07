@@ -274,3 +274,4 @@ public class Eternity extends Power implements IdlePower {
         }
     }
 }
+

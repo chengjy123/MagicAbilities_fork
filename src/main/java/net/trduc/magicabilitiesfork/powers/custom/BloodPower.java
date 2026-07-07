@@ -368,3 +368,4 @@ public class BloodPower extends Power implements IdlePower {
         loc.getWorld().playSound(loc, Sound.ENTITY_PLAYER_HURT, 0.5f, 0.4f);
     }
 }
+

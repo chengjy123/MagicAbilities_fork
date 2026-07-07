@@ -91,3 +91,4 @@ public class Binds implements CommandExecutor, TabCompleter {
         }
     }
 }
+

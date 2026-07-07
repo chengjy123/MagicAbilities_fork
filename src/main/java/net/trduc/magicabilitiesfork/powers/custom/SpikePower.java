@@ -32,7 +32,6 @@ public class SpikePower extends Power implements Removeable {
 
     private final Random rng = new Random();
 
-
     private BukkitRunnable wallTask  = null;
     private BukkitRunnable stormTask = null;
 
@@ -56,10 +55,6 @@ public class SpikePower extends Power implements Removeable {
         }
     }
 
-
-
-
-
     private void tendrilStrike(Player p) {
         if (onCd(CD_STRIKE, p, this)) return;
 
@@ -77,8 +72,6 @@ public class SpikePower extends Power implements Removeable {
             final int idx   = i;
             final int delay = i * 2;
 
-
-
             final double sideOff = (rng.nextDouble() - 0.5) * 2.4;
             final double vertOff = (rng.nextDouble() - 0.5) * 1.6;
 
@@ -94,7 +87,6 @@ public class SpikePower extends Power implements Removeable {
         addCd(CD_STRIKE, p);
     }
 
-
     private void fireTendril(Player p, Location origin, LivingEntity target, double sideOff, double vertOff, double damage, int idx) {
         final Vector right = p.getLocation().getDirection().clone().setY(0).normalize();
         final Vector side  = new Vector(-right.getZ(), 0, right.getX());
@@ -107,7 +99,6 @@ public class SpikePower extends Power implements Removeable {
                 if (t > steps || !target.isValid() || target.isDead()) { cancel(); return; }
 
                 double progress = (double) t / steps;
-
 
                 double bulge = Math.sin(progress * Math.PI) * 1.0;
 
@@ -140,10 +131,6 @@ public class SpikePower extends Power implements Removeable {
             }
         }.runTaskTimer(magicPlugin, 0L, 1L);
     }
-
-
-
-
 
     private void tendrilBurst(Player p) {
         if (onCd(CD_BURST, p, this)) return;
@@ -191,10 +178,6 @@ public class SpikePower extends Power implements Removeable {
         sendActionBar(p, "§8✸ Tendril Burst");
         addCd(CD_BURST, p);
     }
-
-
-
-
 
     private void tendrilGrasp(Player p) {
         if (onCd(CD_GRASP, p, this)) return;
@@ -249,10 +232,6 @@ public class SpikePower extends Power implements Removeable {
         sendActionBar(p, "§8⛓ Tendril Grasp");
         addCd(CD_GRASP, p);
     }
-
-
-
-
 
     private void tendrilWall(Player p) {
         if (onCd(CD_WALL, p, this)) return;
@@ -309,7 +288,6 @@ public class SpikePower extends Power implements Removeable {
         addCd(CD_WALL, p);
     }
 
-
     private void riseTendril(Location origin, Location dest) {
         new BukkitRunnable() {
             int t = 0;
@@ -331,10 +309,6 @@ public class SpikePower extends Power implements Removeable {
             }
         }.runTaskTimer(magicPlugin, 0L, 1L);
     }
-
-
-
-
 
     private void tendrilStorm(Player p) {
         if (onCd(CD_STORM, p, this)) return;
@@ -377,11 +351,6 @@ public class SpikePower extends Power implements Removeable {
         addCd(CD_STORM, p);
     }
 
-
-
-
-
-
     private Location originBehindBack(Player p) {
         Vector back = p.getLocation().getDirection().clone().setY(0).normalize().multiply(-0.6);
         return p.getLocation().clone().add(back).add(0, 1.2, 0);
@@ -405,3 +374,4 @@ public class SpikePower extends Power implements Removeable {
         }
     }
 }
+

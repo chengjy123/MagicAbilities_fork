@@ -536,3 +536,4 @@ public class DemonPower extends Power implements IdlePower, Removeable {
         }
     }
 }
+

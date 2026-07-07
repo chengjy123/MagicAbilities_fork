@@ -59,3 +59,4 @@ public class Cooldowns {
         return cds.containsKey(s);
     }
 }
+

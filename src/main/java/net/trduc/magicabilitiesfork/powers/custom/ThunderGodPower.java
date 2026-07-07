@@ -523,3 +523,4 @@ public class ThunderGodPower extends Power implements IdlePower, Removeable {
     }
 
 }
+

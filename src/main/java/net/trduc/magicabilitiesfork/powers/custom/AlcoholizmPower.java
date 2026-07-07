@@ -99,3 +99,4 @@ public class AlcoholizmPower extends Power implements IdlePower {
         return r;
     }
 }
+

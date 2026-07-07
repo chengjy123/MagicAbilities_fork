@@ -628,3 +628,4 @@ public class AirPower extends Power implements IdlePower, Removeable {
         particleApi.spawnParticles(loc, Particle.CLOUD, count / 3, 0.3, 0.25, 0.3, 0.05);
     }
 }
+

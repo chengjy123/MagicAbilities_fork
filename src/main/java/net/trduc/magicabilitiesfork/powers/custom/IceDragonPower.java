@@ -683,3 +683,4 @@ public class IceDragonPower extends Power implements IdlePower, Removeable {
     }
 
 }
+

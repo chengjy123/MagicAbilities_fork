@@ -107,8 +107,8 @@ public abstract class Power {
                 return new SpikePower(p);
             case LUNAR:
                 return new LunarPower(p);
-            case TEST:
-                return new TestPower(p);
+            case COMICTEST:
+                return new Comictest(p);
             default:
                 return new Power(p) {
                     @Override
@@ -137,3 +137,4 @@ public abstract class Power {
                 s + "s."));
     }
 }
+

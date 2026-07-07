@@ -605,3 +605,4 @@ public class PoisonPower extends Power implements IdlePower, Removeable {
         particleApi.spawnColoredParticles(loc, C_BLACK_TOX, 0.8f, count / 3, 0.4, 0.4, 0.4);
     }
 }
+

@@ -594,3 +594,4 @@ public class FirePower extends Power implements IdlePower, Removeable {
     }
 
 }
+
