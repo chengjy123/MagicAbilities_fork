@@ -15,6 +15,7 @@ This Spigot plugin adds a variety of amazing superpowers through the Spigot API,
 - [Features](#-features)
 - [Installation](#-installation)
 - [Commands](#-commands)
+- [Skill Management GUI](#-skill-management-gui)
 - [Available Powers](#-available-powers)
 - [Tips & Tricks](#-tips--tricks)
 - [Contributing](#-contributing)
@@ -28,7 +29,8 @@ This Spigot plugin adds a variety of amazing superpowers through the Spigot API,
 - **Power Customization** - Configure power behavior and effects
 - **Database Support** - Persistent player power storage
 - **Interactive GUI** - Beautiful inventory system for power management
-- **Power Binding** - Bind powers to specific actions (sneak, click, etc.)
+- **Skill Binding Management** - Easily bind abilities to hotbar slots via GUI
+- **Power Toggle** - Enable/disable powers with a single click
 - **Cooldown System** - Customizable ability cooldowns
 - **Smooth Integration** - Built entirely on the Spigot API
 - **Still in Development** - New features and powers being added regularly
@@ -53,8 +55,8 @@ This Spigot plugin adds a variety of amazing superpowers through the Spigot API,
 
 ### Building from Source
 ```bash
-git clone https://github.com/your-repo/MagicAbilities-fork.git
-cd MagicAbilities-fork
+git clone https://github.com/chengjy123/MagicAbilities_fork.git
+cd MagicAbilities_fork
 mvn clean package
 # JAR will be in target/MagicAbilities_fork.jar
 ```
@@ -67,13 +69,16 @@ mvn clean package
 
 | Command | Permission | Description |
 |---------|-----------|-------------|
-| `/setpower <player> <power>` | `magicabilities.setpower` | Grant a player a specific power |
-| `/powerset <on/off>` | `magicabilities.powerset` | Enable/disable power sets |
-| `/powersetaura <on/off>` | `magicabilities.aura` | Toggle power aura visual effects |
-| `/binds` | `magicabilities.binds` | Display power keybinds and actions |
-| `/enable` | `magicabilities.enable` | Enable your current powers |
-| `/disable` | `magicabilities.disable` | Disable your current powers |
-| `/destination <set/tp>` | `magicabilities.destination` | Set and teleport to destinations |
+| `/setpower <player> <power>` | `magic.admin` | Grant a player a specific power |
+| `/powerset <on/off>` | - | Enable/disable power sets |
+| `/powersetaura <on/off>` | - | Toggle power aura visual effects |
+| `/binds` | - | Display power keybinds and actions |
+| `/powergui` | - | Open skill management GUI |
+| `/enable` | - | Enable your current powers |
+| `/disable` | - | Disable your current powers |
+| `/destination <set/tp>` | - | Set and teleport to destinations |
+| `/combos [power]` | - | Display optimal combo sequences |
+| `/powerteam` | - | Manage power teams |
 
 ### 📖 Usage Examples
 ```
@@ -82,6 +87,9 @@ mvn clean package
 
 # Enable all power sets
 /powerset on
+
+# Open skill management GUI
+/powergui
 
 # View your keybinds
 /binds
@@ -95,6 +103,38 @@ mvn clean package
 
 > [!TIP]
 > `/powerset <on/off>` enables or disables entire power sets for easier management
+
+---
+
+## 🖥️ Skill Management GUI
+
+The plugin features an intuitive graphical user interface for managing your skills:
+
+### Opening the GUI
+```
+/powergui
+```
+
+### GUI Features
+
+| Feature | Description |
+|---------|-------------|
+| **Skill List** | View all 9 abilities with their current bind slots |
+| **Left Click** | Open slot selection menu to change binding |
+| **Right Click** | Quick bind to current hotbar slot |
+| **Toggle Button** | Enable/disable powers (green/red wool) |
+| **Reset Button** | Reset all bindings to default |
+
+### Slot Selection
+- Click on a skill to open the slot selection menu
+- Choose a target slot (0-8) to bind the skill
+- Click barrier to cancel
+
+### Benefits
+- No need to remember command syntax
+- Visual feedback for current bindings
+- Quick toggle for power activation
+- All `/binds` information available in GUI
 
 ---
 
@@ -112,8 +152,9 @@ mvn clean package
 | **Lightning** | LIGHTNING | Strike with devastating electrical power |
 | **Thunder God** | THUNDER_GOD | Master of lightning with enhanced abilities |
 | **Lunar** | LUNAR | Harness moonlight and night powers |
+| **Air** | AIR | Advanced air manipulation and pressure abilities |
 
-### 🐉 Dragon Powers
+### 🐉 Dragon & Legendary Powers
 
 | Power | Type | Description |
 |-------|------|-------------|
@@ -152,7 +193,6 @@ mvn clean package
 | **Witcher** | WITCHER | Ancient witchcraft and magic hunting |
 | **Cultivator** | CULTIVATOR | Oriental martial power cultivation |
 | **Shogun** | SHOGUN | Samurai warrior abilities |
-| **Huashan** | HUASHAN | Chinese martial arts mastery |
 | **Snowparting Blade** | SNOWPARTING_BLADE | Ice blade techniques |
 | **Meteor Lord** | METEOR_LORD | Rain meteors from the sky |
 | **Twilight Mirage** | TWILIGHT_MIRAGE | Illusions and twilight magic |
@@ -188,13 +228,14 @@ mvn clean package
 
 ### Getting Started
 - Each power is triggered by different **actions**: Left Click, Right Click, Sneak, Move, Mine Block, Consume Item, etc.
-- Use `/binds` to see which action triggers what for your current power
+- Use `/binds` or `/powergui` to see which action triggers what for your current power
 - Powers can be **individually disabled** while keeping others active
 
 ### Power Management
 - Multiple powers can be active at once through power sets
 - Cooldowns prevent ability spam - check your cooldown status before using abilities
 - Some powers are stronger than others - test them in creative mode first!
+- Use `/powergui` for easy visual management of your skills
 
 ### Server Administration
 ```
@@ -207,7 +248,7 @@ mvn clean package
 > **⚠️ Balance Notice:** The plugin is still in active development. Powers are NOT balanced - some are significantly overpowered. Test thoroughly before using in survival PvP.
 
 > [!WARNING]
-> **📚 Documentation:** The plugin lacks a comprehensive wiki. Use `/binds` to discover mechanics, and join the community for tips!
+> **📚 Documentation:** The plugin lacks a comprehensive wiki. Use `/binds` and `/powergui` to discover mechanics, and join the community for tips!
 
 ---
 
@@ -234,12 +275,15 @@ src/
 │   │   ├── custom/          # Individual power implementations
 │   │   └── executions/      # Action triggers (click, sneak, etc.)
 │   ├── commands/            # Command handlers
-│   ├── guis/               # GUI and animation system
-│   ├── cooldowns/          # Cooldown management
-│   ├── data/               # Database and player data
-│   ├── events/             # Event handlers
-│   └── misc/               # Utility classes
-└── resources/              # Plugin configuration
+│   ├── guis/                # GUI system (PowerGui, PowerTeamGui)
+│   ├── cooldowns/           # Cooldown management
+│   ├── data/                # Database, messages, and player data
+│   ├── events/              # Event handlers
+│   └── misc/                # Utility classes
+└── resources/               # Plugin configuration
+    ├── config.yml           # Main configuration
+    ├── messages.yml         # Message localization
+    └── plugin.yml           # Plugin metadata
 ```
 
 ### Adding a New Power
@@ -247,6 +291,11 @@ src/
 2. Add your power type to `PowerType.java` enum
 3. Implement power mechanics using `Execute` classes
 4. Register in the power system
+
+### GUI System
+- **PowerGui**: Player skill management interface
+- **PowerTeamGui**: Power team management interface
+- Uses standard Spigot inventory API for maximum compatibility
 
 ---
 
@@ -266,6 +315,7 @@ Contributions are welcome! Please:
 - 📚 Documentation and wiki
 - ⚖️ Power balance adjustments
 - 🎨 Visual effects improvements
+- 🖥️ GUI enhancements
 
 ---
 
@@ -279,10 +329,10 @@ This project is licensed under the terms defined in the repository. Check the LI
 
 - **Found a bug?** Open an issue on GitHub
 - **Have a suggestion?** Discuss it in the Issues section
-- **Need help?** Check the `/binds` command first!
+- **Need help?** Check the `/binds` command or `/powergui` first!
 
 ---
 
 **Made with ❤️ for the Minecraft community**
 
-*Last Updated: 2026-07-05*
+*Last Updated: 2026-07-09*
