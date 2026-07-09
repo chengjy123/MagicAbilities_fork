@@ -177,6 +177,7 @@ powers:
     ability6: "&b压缩场"
     ability7: "&b超音速踏步"
     ability8: "&b大气崩塌"
+    air_collapse: "&b⬡ 大气崩塌 ⬡"
 
   blood:
     name: "&c出血镰刀"
@@ -240,6 +241,9 @@ powers:
     ability4: "&5灵魂汲取"
     ability5: "&5恶魔冲锋"
     ability6: "&5虚空抓取"
+    soul_drain_cancelled: "&5灵魂汲取已取消!"
+    soul_drain_channeling: "&5正在引导灵魂汲取!"
+    no_target: "&5视野内没有目标!"
 
   wither:
     name: "&8凋零箭"
@@ -272,6 +276,7 @@ powers:
     ability6: "&7天空步"
     ability7: "&7雨云冲刺"
     ability8: "&7召唤风暴"
+    summon_storm: "&7⛈ 召唤风暴 ⛈"
 
   crystal:
     name: "&d水晶外壳"
@@ -289,6 +294,7 @@ powers:
     ability4: "&7极性交换"
     ability5: "&7碎片风暴"
     ability6: "&7磁力牢笼"
+    item_returned: "&b物品已归还。"
 
   sound:
     name: "&d声波爆发"
@@ -315,6 +321,10 @@ powers:
     ability4: "&6重力牵引"
     ability5: "&6流星护甲"
     ability6: "&6灭绝事件"
+    armor_active: "&6流星护甲已激活!"
+    extinction_charging: "&6☄ 灭绝事件蓄力中..."
+    extinction_incoming: "&6☄ 即将到来..."
+    extinction_done: "&6☄ 灭绝事件!"
 
   wood_dragon:
     name: "&2龙吼"
@@ -329,6 +339,7 @@ powers:
     name: "&d撕裂至虚无"
     ability1: "&d撕裂至虚无"
     ability2: "&d闪烁"
+    cut_to_pieces: "&d把它们切成碎片!"
 
   demon_lord:
     name: "&5地狱之舌"
@@ -360,6 +371,7 @@ powers:
     ability2: "&b暴风雪步"
     ability3: "&b破碎驱动"
     ability4: "&b极地切断"
+    arctic_severance: "&b✦ 极地切断!"
 
   ice_dragon:
     name: "&b龙吼"
@@ -369,6 +381,12 @@ powers:
     ability4: "&b冰河冲"
     ability5: "&b雪雨"
     ability6: "&b天寒"
+    dragon_roar: "&b✦ 龙吼!"
+    cold_moon_formation: "&b✦ 寒月阵!"
+    snow_rain: "&b✦ 雪雨!"
+    charging: "&b✦ 蓄力中..."
+    heavens_cold: "&b✦ 天寒!"
+    no_enemies: "&b7格范围内没有敌人!"
 
   witcher:
     name: "&e伊格尼"
@@ -417,6 +435,7 @@ powers:
     ability6: "&5虚空步"
     ability7: "&5闪烁冲刺"
     ability8: "&5虚空之门"
+    void_gate: "&5✦ 虚空之门 ✦"
 
   poison:
     name: "&2毒液箭"
@@ -437,7 +456,8 @@ powers:
     ability4: "&7引力区域"
     ability5: "&7反重力"
     ability6: "&7空间崩塌"
-    space_collapse: "&7空间崩塌!"
+    space_collapse: "&7⚫空间崩塌!"
+    space_collapse_active: "&7⚫ 崩塌进行中..."
     anti_gravity_broken: "&c反重力法则被打破!"
 
   twilight_mirage:
@@ -455,6 +475,7 @@ powers:
     ability3: "&7月潮"
     ability4: "&7月蚀"
     ability5: "&7天月阵"
+    celestial_moon: "&7☾ 天月阵 ☽"
 
   nature:
     name: "&2荆棘齐射"
@@ -493,6 +514,15 @@ powers:
     ability4: "&e风暴步"
     ability5: "&e神圣裁决"
 
+  earth:
+    name: "&6岩石投射"
+    ability1: "&6岩石投射"
+    ability2: "&6大地之怒"
+    ability3: "&6岩石护盾"
+    ability4: "&6地震"
+    ability5: "&6岩石尖刺"
+    ability6: "&6大地屏障"
+
   potato:
     name: "&6获得土豆"
     ability1: "&6获得土豆"
@@ -511,3 +541,10 @@ powers:
     name: "&c宇宙湮灭"
     ability1: "&c宇宙湮灭"
     ability2: "&c漫画测试"
+    cosmic_domain: "&d✦ 宇宙领域开启 — 范围50!"
+    domain_collapse: "&5✦ 领域向内崩塌..."
+    shockwave: "&6✦ 冲击波 {wave}/{total}!"
+    cosmic_annihilation_charging: "&d✦ 宇宙湮灭 — 天空开始撕裂..."
+    sky_collapsing: "&c天空正在崩塌..."
+    cosmic_annihilation_done: "&6✦ 宇宙湮灭!"
+    channeling_warning: "&5⚠ {caster} 正在附近引导灾难性的力量..."

@@ -18,6 +18,7 @@ import org.bukkit.util.Vector;
 
 import java.util.*;
 
+import net.trduc.magicabilitiesfork.data.MessagesManager;
 import static net.trduc.magicabilitiesfork.MagicAbilitiesfork.*;
 import static net.trduc.magicabilitiesfork.misc.PowerUtils.*;
 import static net.trduc.magicabilitiesfork.data.PlayerData.getPlayerData;
@@ -49,6 +50,7 @@ public class MeteorLordPower extends Power implements IdlePower, Removeable {
 
     private boolean armorActive = false;
     private BukkitRunnable armorTask = null;
+    private final MessagesManager messages = MessagesManager.getInstance();
 
     public MeteorLordPower(Player owner) { super(owner); }
 
@@ -71,7 +73,7 @@ public class MeteorLordPower extends Power implements IdlePower, Removeable {
             case 2: if (onCd(mt_slam, p, this)) return; impactSlam(p);    addCd(mt_slam, p);    return;
             case 3: if (onCd(mt_gravity, p, this)) return; gravityPull(p);   addCd(mt_gravity, p); return;
             case 4:
-                if (armorActive) { p.sendMessage(org.bukkit.ChatColor.GOLD + "Meteor Armor is already active!"); return; }
+                if (armorActive) { p.sendMessage(ChatColor.translateAlternateColorCodes('&', messages.get("powers.meteor_lord.armor_active"))); return; }
                 if (onCd(mt_armor, p, this)) return;
                 meteorArmor(p);
                 addCd(mt_armor, p);
@@ -381,7 +383,7 @@ public class MeteorLordPower extends Power implements IdlePower, Removeable {
     private void extinctionEvent(Player p) {
         p.getWorld().playSound(p.getLocation(), Sound.ENTITY_WITHER_SPAWN, 0.9f, 0.5f);
         p.getWorld().playSound(p.getLocation(), Sound.BLOCK_BEACON_ACTIVATE, 0.7f, 0.4f);
-        p.sendMessage(org.bukkit.ChatColor.RED + "☄ " + org.bukkit.ChatColor.BOLD + "EXTINCTION EVENT charging...");
+        p.sendMessage(ChatColor.translateAlternateColorCodes('&', messages.get("powers.meteor_lord.extinction_charging")));
 
         new BukkitRunnable() {
             int ct = 50;
@@ -399,7 +401,7 @@ public class MeteorLordPower extends Power implements IdlePower, Removeable {
                 }
                 if (ct == 25) {
                     p.getWorld().playSound(p.getLocation(), Sound.ENTITY_BLAZE_SHOOT, 0.8f, 0.3f);
-                    p.sendMessage(org.bukkit.ChatColor.DARK_RED + "☄ INCOMING...");
+                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', messages.get("powers.meteor_lord.extinction_incoming")));
                 }
                 ct--;
             }
@@ -412,7 +414,7 @@ public class MeteorLordPower extends Power implements IdlePower, Removeable {
 
         p.getWorld().playSound(center, Sound.ENTITY_WITHER_SPAWN,  1f,  0.4f);
         p.getWorld().playSound(center, Sound.ENTITY_BLAZE_SHOOT,   1f,  0.3f);
-        p.sendMessage(org.bukkit.ChatColor.RED + "☄ " + org.bukkit.ChatColor.BOLD + "EXTINCTION EVENT!");
+        p.sendMessage(ChatColor.translateAlternateColorCodes('&', messages.get("powers.meteor_lord.extinction_done")));
         particleApi.spawnColoredParticles(center.clone().add(0,1,0), C_CORE_WHITE,  2.5f, 60, 2, 2, 2);
         particleApi.spawnColoredParticles(center.clone().add(0,1,0), C_METEOR_ORG,  2.0f, 80, 3, 3, 3);
         particleApi.spawnParticles(center, Particle.LAVA, 20, 2, 1, 2, 0.15);

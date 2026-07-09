@@ -15,6 +15,7 @@ import org.bukkit.util.Vector;
 
 import java.util.*;
 
+import net.trduc.magicabilitiesfork.data.MessagesManager;
 import static net.trduc.magicabilitiesfork.MagicAbilitiesfork.*;
 import static net.trduc.magicabilitiesfork.misc.PowerUtils.*;
 import static net.trduc.magicabilitiesfork.data.PlayerData.getPlayerData;
@@ -48,6 +49,7 @@ public class DemonPower extends Power implements IdlePower, Removeable {
     private boolean draining = false;
     private BukkitRunnable drainRunnable = null;
     private boolean charging = false;
+    private final MessagesManager messages = MessagesManager.getInstance();
 
     public DemonPower(Player owner) { super(owner); }
 
@@ -58,8 +60,7 @@ public class DemonPower extends Power implements IdlePower, Removeable {
                 drainRunnable.cancel();
                 drainRunnable = null;
                 draining = false;
-                ((DamagedByExecute) ex).getPlayer().sendMessage(
-                        ChatColor.DARK_RED + "Soul Drain cancelled!");
+                ((DamagedByExecute) ex).getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', messages.get("powers.demon.soul_drain_cancelled")));
                 addCd(dm_drain, ((DamagedByExecute) ex).getPlayer(), 0.5);
             }
             shadowCounter((DamagedByExecute) ex);
@@ -80,7 +81,7 @@ public class DemonPower extends Power implements IdlePower, Removeable {
             case 0: if (onCd(dm_soulbolt, p, this)) return; soulBolt(p);    addCd(dm_soulbolt, p); return;
             case 1: if (onCd(dm_hellfire, p, this)) return; hellfireRain(p); addCd(dm_hellfire, p); return;
             case 2: if (onCd(dm_cleave, p, this)) return; shadowCleave(p); addCd(dm_cleave, p);   return;
-            case 3: if (draining) { p.sendMessage(ChatColor.DARK_PURPLE + "Channeling Soul Drain!"); return; }
+            case 3: if (draining) { p.sendMessage(ChatColor.translateAlternateColorCodes('&', messages.get("powers.demon.soul_drain_channeling"))); return; }
                     if (onCd(dm_drain, p, this)) return; soulDrain(p); return;
             case 4: if (charging) return;
                     if (onCd(dm_charge, p, this)) return; demonCharge(p); return;
@@ -391,7 +392,7 @@ public class DemonPower extends Power implements IdlePower, Removeable {
     private void voidGrasp(Player p) {
         LivingEntity target = getNearestTarget(p, 7);
         if (target == null) {
-            p.sendMessage(ChatColor.DARK_RED + "No target in sight!");
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&', messages.get("powers.demon.no_target")));
             return;
         }
 

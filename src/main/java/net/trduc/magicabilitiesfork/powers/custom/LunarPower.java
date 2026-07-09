@@ -12,6 +12,7 @@ import org.bukkit.util.Vector;
 
 import java.util.*;
 
+import net.trduc.magicabilitiesfork.data.MessagesManager;
 import static net.trduc.magicabilitiesfork.MagicAbilitiesfork.magicPlugin;
 import static net.trduc.magicabilitiesfork.MagicAbilitiesfork.particleApi;
 import static net.trduc.magicabilitiesfork.misc.PowerUtils.*;
@@ -38,6 +39,7 @@ public class LunarPower extends Power implements IdlePower, Removeable {
     private BukkitRunnable domainTask = null;
     private BukkitRunnable shadowTask = null;
     private Location shadowDecoy = null;
+    private final MessagesManager messages = MessagesManager.getInstance();
 
     public LunarPower(Player owner) {
         super(owner);
@@ -389,7 +391,7 @@ public class LunarPower extends Power implements IdlePower, Removeable {
         domainActive = true;
         Location center = p.getLocation().clone();
 
-        p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "\u263d CELESTIAL MOON FORMATION \u263e");
+        p.sendMessage(ChatColor.translateAlternateColorCodes('&', messages.get("powers.lunar.celestial_moon")));
         p.getWorld().playSound(center, Sound.ENTITY_ELDER_GUARDIAN_CURSE, 0.9f, 0.3f);
         p.getWorld().playSound(center, Sound.ENTITY_WARDEN_AMBIENT,       0.8f, 0.4f);
         p.getWorld().playSound(center, Sound.BLOCK_BEACON_ACTIVATE,       1.0f, 0.5f);

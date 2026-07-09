@@ -13,6 +13,7 @@ import org.bukkit.util.Vector;
 
 import java.util.*;
 
+import net.trduc.magicabilitiesfork.data.MessagesManager;
 import static net.trduc.magicabilitiesfork.MagicAbilitiesfork.magicPlugin;
 import static net.trduc.magicabilitiesfork.MagicAbilitiesfork.particleApi;
 import static net.trduc.magicabilitiesfork.data.PlayerData.getPlayerData;
@@ -39,6 +40,7 @@ public class MagneticPower extends Power implements IdlePower {
     private final Map<UUID, BukkitRunnable> cagedEntities = new HashMap<>();
 
     private final Random rng = new Random();
+    private final MessagesManager messages = MessagesManager.getInstance();
 
     public MagneticPower(Player owner) { super(owner); }
 
@@ -276,7 +278,7 @@ public class MagneticPower extends Power implements IdlePower {
                 @Override public void run() {
                     if (finalVictim.isOnline()) {
                         finalVictim.getInventory().setItemInMainHand(finalStolen);
-                        finalVictim.sendMessage("§bYour item has been returned.");
+                        finalVictim.sendMessage(ChatColor.translateAlternateColorCodes('&', messages.get("powers.magnetic.item_returned")));
                     }
                 }
             }.runTaskLater(magicPlugin, 60);

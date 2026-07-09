@@ -33,7 +33,7 @@ public class DbManager {
             Class.forName("org.sqlite.JDBC");
             this.conn = DriverManager.getConnection("jdbc:sqlite:plugins/"+plugin.getDataFolder().getName()+"/data.db");
             Statement stmt = conn.createStatement();
-            String sql = "create table if not exists powers (name TEXT PRIMARY KEY NOT NULL, power TEXT NOT NULL, enabled BOOLEAN NOT NULL, aura_enabled BOOLEAN NOT NULL DEFAULT 1);";
+            String sql = "create table if not exists powers (name TEXT PRIMARY KEY NOT NULL, power TEXT NOT NULL, enabled BOOLEAN NOT NULL, aura_enabled BOOLEAN NOT NULL DEFAULT 0);";
             stmt.execute(sql);
             String sql2 = "create table if not exists binds (name TEXT PRIMARY KEY NOT NULL," +
                     " ab0 INT NOT NULL, ab1 INT NOT NULL, ab2 INT NOT NULL, ab3 INT NOT NULL, ab4 INT NOT NULL, ab5 INT NOT NULL," +
@@ -69,7 +69,7 @@ public class DbManager {
             rs.close();
         } catch (Exception e) {
             try {
-                stmt.execute("alter table powers add column aura_enabled BOOLEAN NOT NULL DEFAULT 1;");
+                stmt.execute("alter table powers add column aura_enabled BOOLEAN NOT NULL DEFAULT 0;");
             } catch (Exception ex) {
                 ex.printStackTrace();
             }

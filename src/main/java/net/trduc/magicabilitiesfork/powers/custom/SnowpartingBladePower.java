@@ -16,6 +16,7 @@ import org.bukkit.util.Vector;
 
 import java.util.*;
 
+import net.trduc.magicabilitiesfork.data.MessagesManager;
 import static net.trduc.magicabilitiesfork.MagicAbilitiesfork.*;
 import static net.trduc.magicabilitiesfork.misc.PowerUtils.*;
 import static net.trduc.magicabilitiesfork.data.PlayerData.getPlayerData;
@@ -46,6 +47,7 @@ public class SnowpartingBladePower extends Power implements IdlePower, Removeabl
     private boolean driving = false;
     private BukkitRunnable auraTask = null;
     private BukkitRunnable hudTask  = null;
+    private final MessagesManager messages = MessagesManager.getInstance();
 
     public SnowpartingBladePower(Player owner) {
         super(owner);
@@ -306,7 +308,7 @@ public class SnowpartingBladePower extends Power implements IdlePower, Removeabl
     private void arcticSeverance(Player p) {
         p.getWorld().playSound(p.getLocation(), Sound.ENTITY_PLAYER_ATTACK_SWEEP, 1f, 0.3f);
         p.getWorld().playSound(p.getLocation(), Sound.BLOCK_GLASS_BREAK, 0.8f, 0.4f);
-        p.sendMessage(ChatColor.AQUA + "✦ " + ChatColor.BOLD + "ARCTIC SEVERANCE!");
+        p.sendMessage(ChatColor.translateAlternateColorCodes('&', messages.get("powers.snowparting_blade.arctic_severance")));
 
         List<ArmorStand> orbs = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
