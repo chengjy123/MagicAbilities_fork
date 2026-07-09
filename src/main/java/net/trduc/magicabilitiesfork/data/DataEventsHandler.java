@@ -20,6 +20,7 @@ import static net.trduc.magicabilitiesfork.players.PowerPlayer.players;
 public class DataEventsHandler implements Listener {
     private final DbManager dbManager;
     private final ExecutionEvents executionEvents;
+    private final MessagesManager messages = MessagesManager.getInstance();
 
     public DataEventsHandler(DbManager dbManager, ExecutionEvents executionEvents) {
         this.dbManager = dbManager;
@@ -35,7 +36,7 @@ public class DataEventsHandler implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent event){
         if (event.getPlayer().getName().contains(" ")){
-            event.getPlayer().kickPlayer("Invalid Name!");
+            event.getPlayer().kickPlayer("无效的名称！");
         }
         if (players.containsKey(event.getPlayer())) {
             players.get(event.getPlayer()).remove();
@@ -50,17 +51,15 @@ public class DataEventsHandler implements Listener {
             new BukkitRunnable() {
                 @Override
                 public void run() {
-                    event.getPlayer().sendMessage(ChatColor.GOLD + "✦ Welcome! You have received the power: "
-                            + ChatColor.YELLOW + ChatColor.BOLD + assigned.name().replace('_', ' '));
-                    event.getPlayer().sendMessage(ChatColor.GRAY + "Use /powerset off to disable your power when not needed.");
+                    event.getPlayer().sendMessage(messages.get("data.welcome") + ChatColor.YELLOW + ChatColor.BOLD + assigned.name().replace('_', ' '));
+                    event.getPlayer().sendMessage(messages.get("data.welcome_hint"));
                 }
             }.runTaskLater(magicPlugin, 20);
         } else {
             new BukkitRunnable() {
                 @Override
                 public void run() {
-                    event.getPlayer().sendMessage(ChatColor.GREEN + "Your power is "
-                            + (getPlayerData(event.getPlayer()).isEnabled() ? "enabled" : "disabled") + "!");
+                    event.getPlayer().sendMessage(messages.get("data.power_status") + (getPlayerData(event.getPlayer()).isEnabled() ? "已开启" : "已关闭") + "！");
                 }
             }.runTaskLater(magicPlugin, 1);
         }
@@ -77,4 +76,3 @@ public class DataEventsHandler implements Listener {
         executionEvents.cleanup(event.getPlayer());
     }
 }
-

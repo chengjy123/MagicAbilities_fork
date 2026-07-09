@@ -365,11 +365,11 @@ public class SpikePower extends Power implements Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "§8⚡ Tendril Strike";
-            case 1: return "§8✸ Tendril Burst";
-            case 2: return "§8⛓ Tendril Grasp";
-            case 3: return "§8▦ Tendril Wall";
-            case 4: return "§c▼ Tendril Storm (Ultimate)";
+            case 0: return "§8⚡ 卷须打击";
+            case 1: return "§8✸ 卷须爆发";
+            case 2: return "§8⛓ 卷须抓取";
+            case 3: return "§8▦ 卷须墙";
+            case 4: return "§c▼ 卷须风暴 (终极)";
             default: return "§7none";
         }
     }

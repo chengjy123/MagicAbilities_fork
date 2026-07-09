@@ -460,11 +460,11 @@ public class ThunderGodPower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "&eTriple Strike";
-            case 1: return "&6Heaven's Wrath";
-            case 2: return "&5Thunder Cage";
-            case 3: return "&eStorm Step";
-            case 4: return "&6&lDivine Judgment";
+            case 0: return "&e三连击";
+            case 1: return "&6天罚";
+            case 2: return "&5雷电牢笼";
+            case 3: return "&e风暴步";
+            case 4: return "&6&l神圣裁决";
             default: return "&7none";
         }
     }

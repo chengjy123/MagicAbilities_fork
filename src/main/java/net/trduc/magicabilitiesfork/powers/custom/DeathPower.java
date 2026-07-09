@@ -477,12 +477,12 @@ public class DeathPower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "&8Soul Rend";
-            case 1: return "&8Death Scythe";
-            case 2: return "&8Void Step";
-            case 3: return "&8Necrotic Grasp";
-            case 4: return "&8Dark Shroud";
-            case 5: return "&8Domain Expansion: Realm of Death";
+            case 0: return "&8灵魂撕裂";
+            case 1: return "&8死亡镰刀";
+            case 2: return "&8虚空步";
+            case 3: return "&8坏死抓取";
+            case 4: return "&8黑暗遮蔽";
+            case 5: return "&8领域展开：死亡之境";
             default: return "&7none";
         }
     }

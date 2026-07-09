@@ -446,11 +446,11 @@ public class CrystalPower extends Power implements IdlePower {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "§5Crystal Shell";
-            case 1: return "§5Amethyst Spire";
-            case 2: return "§5Fracture Field";
-            case 3: return "§5Crystal Prison";
-            case 4: return "§5Resonance Shatter";
+            case 0: return "§5水晶外壳";
+            case 1: return "§5紫水晶尖塔";
+            case 2: return "§5裂隙场";
+            case 3: return "§5水晶牢笼";
+            case 4: return "§5共振碎裂";
             default: return "§7none";
         }
     }

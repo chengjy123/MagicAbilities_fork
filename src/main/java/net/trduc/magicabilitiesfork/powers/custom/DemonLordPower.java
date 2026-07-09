@@ -511,8 +511,8 @@ public class DemonLordPower extends Power implements IdlePower, Removeable {
         p.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, 70, 255, false, false));
         p.getWorld().playSound(p.getLocation(), Sound.ENTITY_WITHER_SPAWN, 0.8f, 0.5f);
         p.getWorld().playSound(p.getLocation(), Sound.BLOCK_BEACON_ACTIVATE, 0.6f, 0.2f);
-        p.sendMessage(org.bukkit.ChatColor.DARK_RED + "" + org.bukkit.ChatColor.BOLD + "🔱 JUDGMENT OF HELL — Invoking...");
-        hud(p, "§4🔱 Charging...");
+        p.sendMessage(org.bukkit.ChatColor.DARK_RED + "" + org.bukkit.ChatColor.BOLD + "🔱 地狱裁决 — 召唤中...");
+        hud(p, "§4🔱 蓄力中...");
         judgeTask = new BukkitRunnable() {
             int ct = 60;
             @Override public void run() {
@@ -560,7 +560,7 @@ public class DemonLordPower extends Power implements IdlePower, Removeable {
         p.removePotionEffect(PotionEffectType.RESISTANCE);
         p.getWorld().playSound(p.getLocation(), Sound.ENTITY_WITHER_DEATH,  1f, 0.4f);
         p.getWorld().playSound(p.getLocation(), Sound.ENTITY_LIGHTNING_BOLT_THUNDER, 1f, 0.5f);
-        p.sendMessage(org.bukkit.ChatColor.DARK_RED + "🔱 " + org.bukkit.ChatColor.BOLD + "JUDGMENT OF HELL!");
+        p.sendMessage(org.bukkit.ChatColor.DARK_RED + "🔱 " + org.bukkit.ChatColor.BOLD + "地狱裁决!");
         final Location epicenter = p.getLocation().clone().add(0, 1, 0);
         final org.bukkit.World world = p.getWorld();
 
@@ -794,18 +794,18 @@ public class DemonLordPower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "§c⚔ Hell's Tongue";
-            case 1: return "§5☠ Soul Warrior Summoning";
-            case 2: return "§4🔥 Hell's Loose Confinement";
-            case 3: return "§c🌋 Hellfire Eruption";
-            case 4: return "§8⚡ Hell's Shadow Step";
-            case 5: return "§4§l🔱 Hell's Judgment";
+            case 0: return "§c⚔ 地狱之舌";
+            case 1: return "§5☠ 灵魂战士召唤";
+            case 2: return "§4🔥 地狱脱狱";
+            case 3: return "§c🌋 地狱火喷发";
+            case 4: return "§8⚡ 地狱暗影步";
+            case 5: return "§4§l🔱 地狱裁决";
             default: return "§7none";
         }
     }
     private void hud(Player p, String msg) {
-        String state = judging ? " §4[JUDGMENT]"
-                : summonedSouls.size() > 0 ? " §5[" + summonedSouls.size() + " soul]" : "";
+        String state = judging ? " §4[裁决]"
+                : summonedSouls.size() > 0 ? " §5[" + summonedSouls.size() + "灵魂]" : "";
         String m   = msg != null ? " §r§f" + msg : "";
     }
 

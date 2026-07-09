@@ -402,7 +402,7 @@ public class CloudPower extends Power implements IdlePower, Removeable {
         if (stormActive) return;
         stormActive = true;
 
-        p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "⛈ STORM CALLING ⛈");
+        p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "⛈ 召唤风暴 ⛈");
         p.getWorld().playSound(p.getLocation(), Sound.ENTITY_LIGHTNING_BOLT_THUNDER, 1f, 0.4f);
         p.getWorld().playSound(p.getLocation(), Sound.ENTITY_WARDEN_SONIC_CHARGE,   0.7f, 0.3f);
 
@@ -562,14 +562,14 @@ public class CloudPower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "§fMist Bolt";
-            case 1: return "§fCloud Ascend";
-            case 2: return "§fFog Wall";
-            case 3: return "§fCumulus Slam";
-            case 4: return "§fCloud Barrage";
-            case 5: return "§bSky Step";
-            case 6: return "§fNimbus Dash";
-            case 7: return "§b§lSTORM CALLING §e[ULT]";
+            case 0: return "§f迷雾箭";
+            case 1: return "§f云升";
+            case 2: return "§f雾墙";
+            case 3: return "§f积雨云冲击";
+            case 4: return "§f云层弹幕";
+            case 5: return "§b天空步";
+            case 6: return "§f雨云冲刺";
+            case 7: return "§b§l召唤风暴 §e[ULT]";
             default: return "§7none";
         }
     }

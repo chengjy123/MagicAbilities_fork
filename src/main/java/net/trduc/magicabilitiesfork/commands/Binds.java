@@ -1,5 +1,6 @@
 package net.trduc.magicabilitiesfork.commands;
 
+import net.trduc.magicabilitiesfork.data.MessagesManager;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -13,6 +14,9 @@ import java.util.List;
 import static net.trduc.magicabilitiesfork.players.PowerPlayer.players;
 
 public class Binds implements CommandExecutor, TabCompleter {
+
+    private final MessagesManager messages = MessagesManager.getInstance();
+
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
         if (!cmd.getName().equalsIgnoreCase("binds")){
@@ -23,20 +27,21 @@ public class Binds implements CommandExecutor, TabCompleter {
         }
         Player p = (Player) sender;
         if (!players.containsKey(p)){
-            p.sendMessage(ChatColor.RED + "Something went wrong!");
+            p.sendMessage(messages.get("general.something_wrong"));
             return true;
         }
         if (args.length==0){
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7---------------------------"));
+            p.sendMessage(messages.get("commands.binds.list_header"));
             for (int i = 0; i < 9; i++){
                 p.sendMessage(ChatColor.translateAlternateColorCodes('&',
-                        "&7Slot - &c" + i + "&7: ability - " + players.get(p).getPower().getAbilityName(players.get(p).getBinds().get(i)) + " &7- &a"+ players.get(p).getBinds().get(i)));
+                        "&7槽位 - &c" + i + "&7: 技能 - " + players.get(p).getPower().getAbilityName(players.get(p).getBinds().get(i)) + " &7- &a"+ players.get(p).getBinds().get(i)));
             }
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7---------------------------"));
+            p.sendMessage(messages.get("commands.binds.list_header"));
             return true;
         }
         if (args.length==1 && args[0].equalsIgnoreCase("reset")){
             players.get(p).resetBinds();
+            p.sendMessage(messages.get("commands.binds.reset"));
             return true;
         }
         if (args.length==3){
@@ -46,10 +51,10 @@ public class Binds implements CommandExecutor, TabCompleter {
                     int s2 = Integer.parseInt(args[2]);
 
                     players.get(p).changeBind(s1, s2);
-                    p.sendMessage(ChatColor.GREEN + "Changed!");
+                    p.sendMessage(messages.get("commands.binds.changed"));
                     return true;
                 } catch (Exception e){
-                    p.sendMessage(ChatColor.RED + "Something went wrong!");
+                    p.sendMessage(messages.get("general.something_wrong"));
                     return true;
                 }
             }
@@ -91,4 +96,3 @@ public class Binds implements CommandExecutor, TabCompleter {
         }
     }
 }
-

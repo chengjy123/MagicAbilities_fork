@@ -1,5 +1,6 @@
 package net.trduc.magicabilitiesfork.commands;
 
+import net.trduc.magicabilitiesfork.data.MessagesManager;
 import net.trduc.magicabilitiesfork.powers.custom.WarpPower;
 import org.bukkit.*;
 import org.bukkit.command.Command;
@@ -14,6 +15,9 @@ import java.util.List;
 import static net.trduc.magicabilitiesfork.players.PowerPlayer.players;
 
 public class Destination implements CommandExecutor, TabCompleter {
+
+    private final MessagesManager messages = MessagesManager.getInstance();
+
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
         if (!cmd.getName().equalsIgnoreCase("destination")){
@@ -24,13 +28,13 @@ public class Destination implements CommandExecutor, TabCompleter {
         }
         Player p = (Player) sender;
         if (!(players.get(p).getPower() instanceof WarpPower)){
-            p.sendMessage(ChatColor.RED + "You can't use this command!");
+            p.sendMessage(messages.get("commands.destination.cant_use"));
             return true;
         }
         if (args.length==0){
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7---------------------------"));
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Destination is set to:"));
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7World: &c" + ((WarpPower) players.get(p).getPower()).getDest().getWorld().getName()));
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7目的地已设置为:"));
+            p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7世界: &c" + ((WarpPower) players.get(p).getPower()).getDest().getWorld().getName()));
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7X: &c" + ((WarpPower) players.get(p).getPower()).getDest().getX()));
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Y: &c" + ((WarpPower) players.get(p).getPower()).getDest().getY()));
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7Z: &c" + ((WarpPower) players.get(p).getPower()).getDest().getZ()));
@@ -40,10 +44,10 @@ public class Destination implements CommandExecutor, TabCompleter {
         if (args.length==1){
             try {
                 ((WarpPower) players.get(p).getPower()).setDest(Bukkit.getPlayer(args[0]).getLocation());
-                p.sendMessage(ChatColor.GREEN + "Destination set!");
+                p.sendMessage(messages.get("commands.destination.set"));
                 return true;
             } catch (Exception e){
-                p.sendMessage(ChatColor.RED + "Something went wrong!");
+                p.sendMessage(messages.get("general.something_wrong"));
                 return true;
             }
         }
@@ -51,18 +55,18 @@ public class Destination implements CommandExecutor, TabCompleter {
             try {
                 Location dest = new Location(p.getWorld(), Double.parseDouble(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2]));
                 if (p.getLocation().distance(dest)>20000){
-                    p.sendMessage(ChatColor.RED + "Distance is to large!");
+                    p.sendMessage(messages.get("commands.destination.too_far"));
                     return true;
                 }
                 if (!isInsideWorldBorder(dest)){
-                    p.sendMessage(ChatColor.RED + "Cant set destination outside the world border!");
+                    p.sendMessage(messages.get("commands.destination.outside_border"));
                     return true;
                 }
                 ((WarpPower) players.get(p).getPower()).setDest(dest);
-                p.sendMessage(ChatColor.GREEN + "Destination set!");
+                p.sendMessage(messages.get("commands.destination.set"));
                 return true;
             } catch (Exception e){
-                p.sendMessage(ChatColor.RED + "Something went wrong!");
+                p.sendMessage(messages.get("general.something_wrong"));
                 return true;
             }
         }
@@ -121,4 +125,3 @@ public class Destination implements CommandExecutor, TabCompleter {
         }
     }
 }
-

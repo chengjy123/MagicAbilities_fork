@@ -525,11 +525,11 @@ public class WitcherPower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "&cIgni";
-            case 1: return "&bAard";
-            case 2: return "&eQuen";
-            case 3: return "&aAxii";
-            case 4: return "&5Yrden";
+            case 0: return "&c伊格尼";
+            case 1: return "&b阿尔德";
+            case 2: return "&e昆恩";
+            case 3: return "&a亚克西";
+            case 4: return "&5亚登";
             default: return "&7none";
         }
     }

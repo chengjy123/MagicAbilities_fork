@@ -1,6 +1,6 @@
 package net.trduc.magicabilitiesfork.commands;
 
-import org.bukkit.ChatColor;
+import net.trduc.magicabilitiesfork.data.MessagesManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -14,6 +14,9 @@ import static net.trduc.magicabilitiesfork.data.PlayerData.getPlayerData;
 import static net.trduc.magicabilitiesfork.players.PowerPlayer.players;
 
 public class Disable implements CommandExecutor, TabCompleter {
+
+    private final MessagesManager messages = MessagesManager.getInstance();
+
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!cmd.getName().equalsIgnoreCase("disable")){
@@ -25,7 +28,7 @@ public class Disable implements CommandExecutor, TabCompleter {
         Player p = (Player) sender;
         if (!players.containsKey(p)) return true;
         players.get(p).getPower().setEnabled(false);
-        p.sendMessage(ChatColor.GREEN + "Your power is now disabled!");
+        p.sendMessage(messages.get("commands.disable.disabled"));
         getPlayerData(p).setEnabled(false);
         return true;
     }
@@ -35,4 +38,3 @@ public class Disable implements CommandExecutor, TabCompleter {
         return new ArrayList<>();
     }
 }
-

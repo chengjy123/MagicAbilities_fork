@@ -529,19 +529,19 @@ public class IcePower extends Power implements IdlePower {
     public String getAbilityName(int ability) {
         switch (ability){
             case 0:
-                return "&bIce Bolt";
+                return "&b冰箭";
             case 1:
-                return "&bIce Machine Gun";
+                return "&b冰霜机枪";
             case 2:
-                return "&bIce Spikes";
+                return "&b冰刺";
             case 3:
-                return "&bIce Star";
+                return "&b冰之星";
             case 4:
-                return "&bMulti Ice Bolt";
+                return "&b多重冰箭";
             case 5:
-                return "&bIce Slashes";
+                return "&b冰刃";
             case 8:
-                return "&bPhase Change";
+                return "&b相变";
             default:
                 return "&7none";
         }

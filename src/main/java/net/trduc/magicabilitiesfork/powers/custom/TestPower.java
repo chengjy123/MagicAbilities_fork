@@ -357,7 +357,7 @@ public class TestPower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "&5&lCosmic Annihilation";
+            case 0: return "&5&l宇宙湮灭";
             default: return "&7none";
         }
     }

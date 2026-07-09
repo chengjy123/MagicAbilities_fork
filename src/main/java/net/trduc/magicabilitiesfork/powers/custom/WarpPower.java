@@ -135,7 +135,7 @@ public class WarpPower extends Power implements IdlePower {
     public String getAbilityName(int ability){
         switch (ability){
             case 0:
-                return "&dRift";
+                return "&d裂隙";
             default:
                 return "&7none";
         }

@@ -526,12 +526,12 @@ public class DemonPower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "&5Soul Bolt";
-            case 1: return "&4Hellfire Rain";
-            case 2: return "&8Shadow Cleave";
-            case 3: return "&dSoul Drain";
-            case 4: return "&cDemon Charge";
-            case 5: return "&5Void Grasp";
+            case 0: return "&5灵魂箭";
+            case 1: return "&4地狱火雨";
+            case 2: return "&8暗影斩";
+            case 3: return "&d灵魂汲取";
+            case 4: return "&c恶魔冲锋";
+            case 5: return "&5虚空抓取";
             default: return "&7none";
         }
     }

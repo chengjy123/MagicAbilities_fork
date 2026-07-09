@@ -158,7 +158,7 @@ public class PotatoPower extends Power {
     public String getAbilityName(int ability){
         switch (ability){
             case 0:
-                return "&6Get Potato";
+                return "&6获得土豆";
             default:
                 return "&7none";
         }

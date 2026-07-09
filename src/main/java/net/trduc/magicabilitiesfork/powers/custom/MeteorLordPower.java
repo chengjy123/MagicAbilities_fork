@@ -591,12 +591,12 @@ public class MeteorLordPower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "&6Meteor Shot";
-            case 1: return "&cMeteor Rain";
-            case 2: return "&6Impact Slam";
-            case 3: return "&eGravity Pull";
-            case 4: return "&6Meteor Armor";
-            case 5: return "&4&lExtinction Event";
+            case 0: return "&6流星射击";
+            case 1: return "&c流星雨";
+            case 2: return "&6冲击猛击";
+            case 3: return "&e重力牵引";
+            case 4: return "&6流星护甲";
+            case 5: return "&4&l灭绝事件";
             default: return "&7none";
         }
     }

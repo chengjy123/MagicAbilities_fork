@@ -114,7 +114,7 @@ public class NaturePower extends Power implements IdlePower, Removeable {
                         TreeType.values()[new Random().nextInt(TreeType.values().length)])) {
                     addCd(nature_tree, p);
                 } else {
-                    p.sendMessage(ChatColor.RED + "Couldn't spawn a tree here!");
+                    p.sendMessage(ChatColor.RED + "无法在这里生成树木!");
                 }
         }
     }
@@ -407,7 +407,7 @@ public class NaturePower extends Power implements IdlePower, Removeable {
         p.getWorld().playSound(p.getLocation(), Sound.BLOCK_AZALEA_LEAVES_PLACE, 1f, 0.8f);
 
         if (nature) {
-            p.sendMessage(ChatColor.GREEN + "✦ Nature's power amplified here!");
+            p.sendMessage(ChatColor.GREEN + "✦ 自然之力在此处增强!");
         }
         new BukkitRunnable() {
             int t = 0;
@@ -525,11 +525,11 @@ public class NaturePower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "&aThorn Volley";
-            case 1: return "&aEntangle";
-            case 2: return "&aSpore Burst";
-            case 3: return "&2Root Lance";
-            case 4: return "&aVerdant Heal";
+            case 0: return "&a荆棘齐射";
+            case 1: return "&a缠绕";
+            case 2: return "&a孢子爆发";
+            case 3: return "&2根矛";
+            case 4: return "&a翠绿治愈";
             default: return "&7none";
         }
     }

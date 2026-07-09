@@ -314,11 +314,11 @@ public class UnstablePower extends WarpPower implements IdlePower {
     public String getAbilityName(int ability) {
         switch (ability){
             case 0:
-                return "&dRift";
+                return "&d裂隙";
             case 1:
-                return "&dSwitch Dimension";
+                return "&d切换维度";
             case 2:
-                return "&aSmall Heal";
+                return "&a小治疗";
             default:
                 return "&7none";
         }

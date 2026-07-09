@@ -87,7 +87,7 @@ public class PhoenixPower extends Power implements IdlePower, Removeable {
         int slot = getPlayerData(p).getBinds().get(players.get(p).getActiveSlot());
         if (slot != 0) return;
         stopFlight(p, true);
-        p.sendMessage(ChatColor.YELLOW + "✦ Wings folded.");
+        p.sendMessage(ChatColor.YELLOW + "✦ 翅膀已收起。");
     }
 
     private void onRightClick(RightClickExecute ex) {
@@ -105,7 +105,7 @@ public class PhoenixPower extends Power implements IdlePower, Removeable {
 
         flying = true;
         int totalSec = FLIGHT_DURATION / 20;
-        p.sendMessage(ChatColor.GOLD + "✦ Phoenix Wings — " + ChatColor.YELLOW + totalSec + "s");
+        p.sendMessage(ChatColor.GOLD + "✦ 凤凰之翼 — " + ChatColor.YELLOW + totalSec + "秒");
         p.getWorld().playSound(p.getLocation(), Sound.ENTITY_PHANTOM_FLAP, 1.2f, 0.45f);
         p.getWorld().playSound(p.getLocation(), Sound.ITEM_FIRECHARGE_USE,  1f,  0.6f);
 
@@ -155,9 +155,9 @@ public class PhoenixPower extends Power implements IdlePower, Removeable {
                 ticks[0]++;
                 int rem = (FLIGHT_DURATION - ticks[0]) / 20;
                 if (ticks[0] % 400 == 0 && rem > 0)
-                    p.sendMessage(ChatColor.YELLOW + "✦ Wings: " + (rem/60) + "m " + (rem%60) + "s remaining");
+                    p.sendMessage(ChatColor.YELLOW + "✦ 翅膀: " + (rem/60) + "分 " + (rem%60) + "秒 剩余");
                 if (rem <= 30 && ticks[0] % 20 == 0 && rem > 0)
-                    p.sendMessage(ChatColor.RED + "Wings fading in " + rem + "s!");
+                    p.sendMessage(ChatColor.RED + "翅膀将在 " + rem + "秒后消散!");
             }
         };
         flightRunnable.runTaskTimer(magicPlugin, 0, 1);
@@ -177,7 +177,7 @@ public class PhoenixPower extends Power implements IdlePower, Removeable {
         }
         particleApi.spawnParticles(loc, Particle.FLAME, 40, 1.0, 1.0, 1.0, 0.1);
         p.getWorld().playSound(loc, Sound.ENTITY_PHANTOM_FLAP, 0.8f, 1.6f);
-        if (!manual) p.sendMessage(ChatColor.YELLOW + "Wings faded.");
+        if (!manual) p.sendMessage(ChatColor.YELLOW + "翅膀已消散。");
     }
     private void wingSpawnBurst(Player p) {
         new BukkitRunnable() {
@@ -380,7 +380,7 @@ public class PhoenixPower extends Power implements IdlePower, Removeable {
 
         p.getWorld().playSound(p.getLocation(), Sound.ENTITY_PHANTOM_HURT, 1f, 0.5f);
         p.getWorld().playSound(p.getLocation(), Sound.ENTITY_BLAZE_SHOOT,  1f, 0.3f);
-        if (bonus) p.sendMessage(ChatColor.GOLD + "✦ " + ChatColor.BOLD + "AERIAL DIVE — ×1.8 dmg!");
+        if (bonus) p.sendMessage(ChatColor.GOLD + "✦ " + ChatColor.BOLD + "空中俯冲 — ×1.8伤害!");
 
         Vector diveVel = p.getEyeLocation().getDirection().clone().setY(-2.5).normalize().multiply(3.5);
         p.setVelocity(diveVel);
@@ -585,8 +585,8 @@ public class PhoenixPower extends Power implements IdlePower, Removeable {
                         loc.getWorld().playSound(loc, Sound.ENTITY_GENERIC_EXPLODE,   1f, 0.5f);
                         loc.getWorld().playSound(loc, Sound.ENTITY_PHANTOM_FLAP,      1f, 0.3f);
                         loc.getWorld().playSound(loc, Sound.ENTITY_PLAYER_LEVELUP,    1f, 0.7f);
-                        p.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "✦ REBIRTH! " +
-                                ChatColor.YELLOW + "Rising from the ashes...");
+                        p.sendMessage(ChatColor.GOLD + "" + ChatColor.BOLD + "✦ 重生! " +
+                                ChatColor.YELLOW + "从灰烬中崛起...");
 
                         for (Entity e : loc.getWorld().getNearbyEntities(loc, 6, 6, 6)) {
                             if (e.equals(p) || e instanceof ArmorStand || !(e instanceof LivingEntity)) continue;
@@ -594,8 +594,8 @@ public class PhoenixPower extends Power implements IdlePower, Removeable {
                             e.setFireTicks(140);
                             e.setVelocity(e.getLocation().subtract(loc).toVector().normalize().multiply(2.5).setY(1.0));
                         }
-                        p.sendMessage(ChatColor.YELLOW + "Rebirth ready in " +
-                                (int)(cooldowns.get(ph_rebirth) / 60) + " min.");
+                        p.sendMessage(ChatColor.YELLOW + "重生将在 " +
+                                (int)(cooldowns.get(ph_rebirth) / 60) + " 分钟后就绪。");
                     }
                 }.runTaskLater(magicPlugin, 5L);
             }
@@ -643,7 +643,7 @@ public class PhoenixPower extends Power implements IdlePower, Removeable {
 
                 if (!rebirthReady && !CooldownApi.isOnCooldown(ph_rebirth, p)) {
                     rebirthReady = true;
-                    p.sendMessage(ChatColor.GOLD + "✦ Rebirth is ready!");
+                    p.sendMessage(ChatColor.GOLD + "✦ 重生已就绪!");
                 }
                 t++;
             }
@@ -666,13 +666,13 @@ public class PhoenixPower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "&6Phoenix Wings";
-            case 1: return "&eSacred Flame";
-            case 2: return "&6Feather Storm";
-            case 3: return "&cInferno Dive";
-            case 4: return "&eSolar Beam";
-            case 5: return "&6Ascension";
-            case 6: return "&c&lFire Tornado";
+            case 0: return "&6凤凰之翼";
+            case 1: return "&e神圣火焰";
+            case 2: return "&6羽毛风暴";
+            case 3: return "&c地狱俯冲";
+            case 4: return "&e太阳光束";
+            case 5: return "&6飞升";
+            case 6: return "&c&l火焰龙卷风";
             default: return "&7none";
         }
     }
@@ -689,7 +689,7 @@ public class PhoenixPower extends Power implements IdlePower, Removeable {
         p.getWorld().playSound(spawnLoc, Sound.ENTITY_PHANTOM_FLAP,    1f, 0.35f);
         p.getWorld().playSound(spawnLoc, Sound.ITEM_FIRECHARGE_USE,     1f, 0.5f);
         p.getWorld().playSound(spawnLoc, Sound.ENTITY_BLAZE_SHOOT,      0.8f, 0.4f);
-        if (aerial) p.sendMessage(ChatColor.GOLD + "✦ " + ChatColor.BOLD + "AERIAL TORNADO — wider range!");
+        if (aerial) p.sendMessage(ChatColor.GOLD + "✦ " + ChatColor.BOLD + "空中龙卷风 — 范围更大!");
         ArmorStand anchor = spawnAs(spawnLoc.clone());
 
         new BukkitRunnable() {

@@ -523,7 +523,7 @@ public class PortalPower extends Power implements IdlePower, Removeable {
 
         p.getWorld().playSound(center, Sound.BLOCK_PORTAL_TRIGGER, 1f, 0.4f);
         p.getWorld().playSound(center, Sound.ENTITY_WARDEN_SONIC_CHARGE, 0.8f, 0.3f);
-        p.sendMessage(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "✦ VOID GATE ✦");
+        p.sendMessage(ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "✦ 虚空之门 ✦");
 
         new BukkitRunnable() {
             int t = 0;
@@ -691,14 +691,14 @@ public class PortalPower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "§5Void Bolt";
-            case 1: return "§5Phase Shift";
-            case 2: return "§5Mirror Portal";
-            case 3: return "§5Rift Pull";
-            case 4: return "§5Portal Barrage";
-            case 5: return "§5Void Step";
-            case 6: return "§5Blink Dash";
-            case 7: return "§5§lVOID GATE §6[ULT]";
+            case 0: return "§5虚空箭";
+            case 1: return "§5相位转移";
+            case 2: return "§5镜像传送门";
+            case 3: return "§5裂隙牵引";
+            case 4: return "§5传送门弹幕";
+            case 5: return "§5虚空步";
+            case 6: return "§5闪烁冲刺";
+            case 7: return "§5§l虚空之门 §6[ULT]";
             default: return "§7none";
         }
     }

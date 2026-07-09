@@ -399,11 +399,11 @@ public class EarthPower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "§6Earth Impact";
-            case 1: return "§6Stone Fortress";
-            case 2: return "§6Boulder Throw";
-            case 3: return "§6Rock Tomb";
-            case 4: return "§6Tectonic Slam";
+            case 0: return "§6大地冲击";
+            case 1: return "§6石堡";
+            case 2: return "§6投掷巨石";
+            case 3: return "§6岩石坟墓";
+            case 4: return "§6构造冲击";
             default: return "§7none";
         }
     }

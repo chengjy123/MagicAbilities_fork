@@ -404,12 +404,12 @@ public class MagneticPower extends Power implements IdlePower {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "§bMagnetic Pull";
-            case 1: return "§bRepulsion Wave";
-            case 2: return "§bIron Grip";
-            case 3: return "§bPolarity Swap";
-            case 4: return "§bScrap Storm";
-            case 5: return "§bMagnetic Cage";
+            case 0: return "§b磁力牵引";
+            case 1: return "§b排斥波";
+            case 2: return "§b铁握";
+            case 3: return "§b极性交换";
+            case 4: return "§b碎片风暴";
+            case 5: return "§b磁力牢笼";
             default: return "§7none";
         }
     }

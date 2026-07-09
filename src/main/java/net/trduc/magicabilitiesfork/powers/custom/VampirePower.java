@@ -562,14 +562,14 @@ public class VampirePower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "§4Blood Lance";
-            case 1: return "§4Crimson Dash";
-            case 2: return "§4Blood Nova";
-            case 3: return "§4Death Grip";
-            case 4: return "§4Bat Swarm";
-            case 5: return "§4Mist Form";
-            case 6: return "§4Shadow Leap";
-            case 7: return "§4§l🌑 BLOOD MOON §c[ULT]";
+            case 0: return "§4血矛";
+            case 1: return "§4深红冲刺";
+            case 2: return "§4血新星";
+            case 3: return "§4死亡之握";
+            case 4: return "§4蝙蝠群";
+            case 5: return "§4迷雾形态";
+            case 6: return "§4暗影跳跃";
+            case 7: return "§4§l🌑 血月 §c[ULT]";
             default: return "§7none";
         }
     }

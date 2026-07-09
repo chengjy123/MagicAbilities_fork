@@ -1,10 +1,12 @@
 package net.trduc.magicabilitiesfork.events;
 
 import net.trduc.magicabilitiesfork.MagicAbilitiesfork;
+import net.trduc.magicabilitiesfork.data.MessagesManager;
 import net.trduc.magicabilitiesfork.powers.Power;
 import net.trduc.magicabilitiesfork.powers.executions.*;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Projectile;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
@@ -26,6 +28,7 @@ public class ExecutionEvents implements Listener {
 
     private final Map<UUID, Long> lastMoveMs = new ConcurrentHashMap<>();
     private static final long MOVE_THROTTLE_MS = 50;
+    private final MessagesManager messages = MessagesManager.getInstance();
 
     private final Map<UUID, Long> lastQuickToggleMs = new ConcurrentHashMap<>();
     private static final long QUICK_TOGGLE_COOLDOWN_MS = 500;
@@ -76,8 +79,8 @@ public class ExecutionEvents implements Listener {
         Player attackerPlayer = null;
         if (event.getDamager() instanceof Player){
             attackerPlayer = (Player) event.getDamager();
-        } else if (event.getDamager() instanceof org.bukkit.projectiles.Projectile){
-            org.bukkit.projectiles.Projectile proj = (org.bukkit.projectiles.Projectile) event.getDamager();
+        } else if (event.getDamager() instanceof Projectile){
+            Projectile proj = (Projectile) event.getDamager();
             if (proj.getShooter() instanceof Player) attackerPlayer = (Player) proj.getShooter();
         } else if (event.getDamager() instanceof org.bukkit.entity.Tameable){
             org.bukkit.entity.Tameable t = (org.bukkit.entity.Tameable) event.getDamager();
@@ -202,9 +205,9 @@ public class ExecutionEvents implements Listener {
         getPlayerData(p).setEnabled(newState);
 
         if (newState) {
-            p.sendMessage(ChatColor.GREEN + "✦ Power " + ChatColor.BOLD + "enabled" + ChatColor.RESET + ChatColor.GREEN + ".");
+            p.sendMessage(messages.get("events.power_enabled"));
         } else {
-            p.sendMessage(ChatColor.RED + "✦ Power " + ChatColor.BOLD + "disabled" + ChatColor.RESET + ChatColor.RED + ".");
+            p.sendMessage(messages.get("events.power_disabled"));
         }
         return true;
     }

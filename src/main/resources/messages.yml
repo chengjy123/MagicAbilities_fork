@@ -1,0 +1,513 @@
+general:
+  something_wrong: "&c出了点问题！"
+
+power:
+  cooldown: "&c冷却中，剩余 "
+
+commands:
+  binds:
+    usage: "&c用法: /<command> <change/reset> <ability> <slot>"
+    changed: "&a修改成功！"
+    reset: "&a已重置！"
+    unknown_ability: "&c未知技能: "
+    unknown_slot: "&c未知槽位: "
+    list_header: "&7---------------------------"
+    list_format: "&e{ability}: &7{slot}"
+    list_footer: "&7---------------------------"
+
+  destination:
+    cant_use: "&c您不能使用此命令！"
+    set: "&a目的地已设置！"
+    too_far: "&c距离太远！"
+    outside_border: "&c无法设置世界边界外的目的地！"
+
+  setpower:
+    usage: "&c用法: /setpower <玩家|@a> <技能>"
+    unknown_power: "&c未知技能: "
+    player_not_found: "&c玩家未找到或未在线: "
+    no_player_entry: "&e警告: {player} 没有 PowerPlayer 条目，已跳过。"
+    received_random: "&6✦ 您获得了随机技能: "
+    success: "&a已为 {count} 名玩家设置技能 {power}。"
+    failed: "&c没有成功设置任何玩家的技能。"
+    error: "&c{player} 设置失败: "
+
+  enable:
+    enabled: "&a您的技能已启用！"
+
+  disable:
+    disabled: "&a您的技能已禁用！"
+
+  powerset:
+    only_player: "&c只有玩家可以使用此命令。"
+    no_power: "&c您没有被分配技能。"
+    usage: "&c用法: /powerset [on|off]"
+    already: "&e您的技能已{status}。"
+    enabled: "&a✦ 技能已&l开启&r&a。"
+    disabled: "&c✦ 技能已&l关闭&r&c。您将不再释放被动效果或触发技能。"
+
+  powersetaura:
+    only_player: "&c只有玩家可以使用此命令。"
+    no_power: "&c您没有被分配技能。"
+    usage: "&c用法: /powersetaura [on|off]"
+    already: "&e您的光环已{status}。"
+    enabled: "&a✦ 光环&l开启&r&a。"
+    disabled: "&c✦ 光环&l关闭&r&c。您的被动粒子效果将不再显示。"
+
+  combos:
+    something_wrong: "&c出了点问题！"
+    unknown_power: "&c未知技能: "
+    list_header: "&7---------------------------"
+    combo_format: "&e{combo}: &7{slot}"
+    list_footer: "&7---------------------------"
+
+  powerteam:
+    only_player_create: "&c只有玩家可以创建队伍。"
+    create_usage: "&c用法: /powerteam create <名称> <颜色>"
+    already_exists: "&c队伍已存在或创建失败。"
+    created: "&a创建队伍 {team} 并添加您为成员。"
+    not_in_team: "&c您不在队伍中。请创建一个或指定队伍名称。"
+    added: "&a已添加 {player} 到 {team}"
+    add_failed: "&c添加玩家失败（已存在或队伍不存在）。"
+    request_sent: "&e已向队伍所有者发送添加请求等待批准。"
+    request_failed: "&c发送请求失败或请求已存在。"
+    request_notify: "&b审批请求: {sender} 想要添加 {player} 到队伍 {team}。使用 /powerteam requests 查看或 /powerteam approve <player> /powerteam deny <player> 来回应。"
+    request_actionbar: "&e队伍 {team} 有新请求"
+    no_permission_add: "&c只有队伍所有者、副队长或管理员可以直接添加玩家。请使用请求流程。"
+    add_usage: "&c用法: /powerteam add <玩家>   (请求添加到您的队伍)\n或: /powerteam add <队伍> <玩家> (所有者/管理员/副队长)"
+    not_in_team_invite: "&c您不在队伍中。作为管理员请使用 /powerteam invite <队伍> <玩家>。"
+    no_permission_invite: "&c只有所有者、副队长或管理员可以邀请。"
+    invite_sent: "&a邀请已发送给 {player}"
+    invite_failed: "&c邀请失败或已存在。"
+    invite_received: "&b您收到了加入队伍 {team} 的邀请，发送者: {sender}。使用 /powerteam accept {team} 接受或 /powerteam decline {team} 拒绝。"
+    invite_actionbar: "&e收到队伍 {team} 的邀请"
+    no_permission_invite_team: "&c只有所有者、副队长或管理员可以邀请加入该队伍。"
+    invite_usage: "&c用法: /powerteam invite <玩家> (邀请到您的队伍)\n或: /powerteam invite <队伍> <玩家> (所有者/管理员)"
+    only_player_accept: "&c只有玩家可以接受邀请。"
+    accept_usage: "&c用法: /powerteam accept <队伍>"
+    accepted: "&a您已加入 {team}"
+    accept_failed: "&c接受失败或没有邀请。"
+    only_player_decline: "&c只有玩家可以拒绝邀请。"
+    decline_usage: "&c用法: /powerteam decline <队伍>"
+    declined: "&a已拒绝邀请。"
+    decline_failed: "&c拒绝失败或没有邀请。"
+    only_player_requests: "&c只有玩家可以查看请求。"
+    no_requests: "&e没有待处理的请求。"
+    requests_format: "&7---------------------------\n&e待处理请求: &7{count}\n"
+    requests_footer: "&7---------------------------\n&a使用 /powerteam approve <玩家> 批准\n&c使用 /powerteam deny <玩家> 拒绝"
+    only_player_approve: "&c只有玩家可以批准请求。"
+    approve_usage: "&c用法: /powerteam approve <玩家>"
+    approved: "&a已批准并添加 {player} 到 {team}"
+    approve_failed: "&c批准失败。"
+    denied: "&e已拒绝 {player} 的请求"
+    deny_failed: "&c拒绝失败或没有该请求。"
+    only_player_leave: "&c只有玩家可以离开队伍。"
+    leave_not_in_team: "&c您不在队伍中。"
+    left: "&a您已离开队伍。"
+    leave_failed: "&c离开失败。"
+    removed: "&e{player} 已被移除出队伍。"
+    remove_failed: "&c移除失败。"
+    owner_must_transfer: "&c所有者必须先转移所有权或解散队伍才能离开。"
+    only_player_kick: "&c只有玩家可以踢出成员。"
+    kick_usage: "&c用法: /powerteam kick <玩家>"
+    no_permission_kick: "&c只有所有者或副队长可以踢出成员。"
+    cant_kick_owner: "&c不能踢出所有者！"
+    kicked: "&c已将 {player} 踢出队伍。"
+    kick_failed: "&c踢出失败或该玩家不在队伍中。"
+    team_info: "&7---------------------------\n&e队伍: &b{team}\n&e所有者: &a{owner}\n&e成员: {members}\n&7---------------------------"
+    no_team: "&c未找到队伍。"
+    team_list_header: "&7---------------------------\n&e队伍列表:"
+    team_list_format: "&b{team} &7- 所有者: &a{owner} &7- 成员数: &e{count}"
+    team_list_footer: "&7---------------------------"
+
+  powerteamowner:
+    help: "&e所有者命令: transfer/disband/leave/coowner"
+    only_player: "&c只有玩家可以{action}。"
+    transfer_usage: "&c用法: /powerteamowner transfer <队伍> <新所有者>"
+    not_found: "&c未找到队伍。"
+    no_permission: "&c只有所有者可以{action}。"
+    transferred: "&a已将所有权转移给 {player}"
+    transfer_failed: "&c转移失败。"
+    disband_usage: "&c用法: /powerteamowner disband <队伍>"
+    disbanded: "&a队伍已解散。"
+    disband_failed: "&c解散失败。"
+    leave_not_in_team: "&c您不在队伍中。"
+    left: "&a您已离开队伍。"
+    leave_failed: "&c离开失败。"
+    coowner_usage: "&c用法: /powerteamowner coowner <add|remove> <玩家>"
+    no_permission_coowner: "&c只有所有者可以管理副队长。"
+    coowner_added: "&a已添加副队长。"
+    coowner_add_failed: "&c添加副队长失败。"
+    coowner_removed: "&a已移除副队长。"
+    coowner_remove_failed: "&c移除副队长失败。"
+    unknown_action: "&c未知操作。"
+    unknown_command: "&c未知所有者命令。"
+
+data:
+  welcome: "&6✦ 欢迎！您获得了技能: "
+  welcome_hint: "&7不需要时可以使用 /powerset off 禁用技能。"
+  power_status: "&a您的技能"
+
+events:
+  power_enabled: "&a✦ 技能已&l开启&r&a。"
+  power_disabled: "&c✦ 技能已&l关闭&r&c。"
+  team_request_notify: "&6您的队伍 {team} 有 {count} 个待处理请求。"
+  team_request_hint: "&7使用 /powerteam requests 查看或 /powerteam approve <玩家> /powerteam deny <玩家> 来回应。"
+
+gui:
+  team_requests_title: "&3队伍请求: &b{team}"
+  requester: "&7请求者: {player}"
+  left_click_approve: "&a左键批准"
+  right_click_deny: "&c右键拒绝"
+  only_owner: "&c只有队伍所有者可以管理请求。"
+  approved: "&a已批准并添加 {player} 到队伍 {team}"
+  approved_notify: "&a您已被添加到队伍 {team}（由所有者操作）。"
+  approve_failed: "&c批准失败。"
+  denied: "&e已拒绝 {player} 的请求"
+  denied_notify: "&c您加入队伍 {team} 的请求被拒绝。"
+  deny_failed: "&c拒绝失败或没有该请求。"
+
+powers:
+  air:
+    name: "&b气压射击"
+    ability1: "&b气压射击"
+    ability2: "&b气刃连斩"
+    ability3: "&b真空球"
+    ability4: "&b喷射流"
+    ability5: "&b空气弹幕"
+    ability6: "&b压缩场"
+    ability7: "&b超音速踏步"
+    ability8: "&b大气崩塌"
+
+  blood:
+    name: "&c出血镰刀"
+    no_target: "&c没有目标!"
+    insufficient_hp: "&cHP不足，无法献祭!"
+    sacrifice: "&c献祭 {hp} HP — 造成 {damage} 伤害!"
+
+  fire:
+    name: "&c火焰冲击"
+    ability1: "&c火焰冲击"
+    ability2: "&c地狱弹幕"
+    ability3: "&c烈焰涌动"
+    ability4: "&c神圣火焰"
+    ability5: "&c流星打击"
+    ability6: "&c余烬护盾"
+    ability7: "&c燃烧冲刺"
+
+  ice:
+    name: "&b冰箭"
+    ability1: "&b冰箭"
+    ability2: "&b冰霜机枪"
+    ability3: "&b冰刺"
+    ability4: "&b冰之星"
+    ability5: "&b多重冰箭"
+    ability6: "&b冰刃"
+    ability7: "&b相变"
+
+  water:
+    name: "&b潮汐箭"
+    ability1: "&b潮汐箭"
+    ability2: "&b漩涡"
+    ability3: "&b海浪冲击"
+    ability4: "&b水之冲刺"
+    ability5: "&b海啸"
+    ability6: "&b气泡牢笼"
+    ability7: "&b水之形态"
+
+  wind:
+    name: "&b疾风斩"
+    ability1: "&b疾风斩"
+    ability2: "&b旋风"
+    ability3: "&b风爆"
+    ability4: "&b疾风步"
+    ability5: "&b暴风雨"
+    ability6: "&b天跃"
+
+  lightning:
+    name: "&e雷击"
+    ability1: "&e雷击"
+    ability2: "&e闪电射击"
+    ability3: "&e等离子场"
+    ability4: "&e电压冲刺"
+    ability5: "&e雷鸣"
+    ability6: "&e球状闪电"
+
+  demon:
+    name: "&5灵魂箭"
+    ability1: "&5灵魂箭"
+    ability2: "&5地狱火雨"
+    ability3: "&5暗影斩"
+    ability4: "&5灵魂汲取"
+    ability5: "&5恶魔冲锋"
+    ability6: "&5虚空抓取"
+
+  wither:
+    name: "&8凋零箭"
+    ability1: "&8凋零箭"
+    ability2: "&8骷髅弹幕"
+    ability3: "&8死亡标记"
+    ability4: "&8灵魂碎裂"
+    ability5: "&8凋零风暴"
+    ability6: "&8黑暗复活"
+    death_mark: "&8☠ 死亡标记已放置! 将在3秒后引爆..."
+    dark_resurrection: "&8黑暗复活!"
+    resurrection_hint: "&c黑暗复活: HP必须≤4才能手动使用!"
+
+  death:
+    name: "&8灵魂撕裂"
+    ability1: "&8灵魂撕裂"
+    ability2: "&8死亡镰刀"
+    ability3: "&8虚空步"
+    ability4: "&8坏死抓取"
+    ability5: "&8黑暗遮蔽"
+    ability6: "&8领域展开：死亡之境"
+
+  cloud:
+    name: "&7迷雾箭"
+    ability1: "&7迷雾箭"
+    ability2: "&7云升"
+    ability3: "&7雾墙"
+    ability4: "&7积雨云冲击"
+    ability5: "&7云层弹幕"
+    ability6: "&7天空步"
+    ability7: "&7雨云冲刺"
+    ability8: "&7召唤风暴"
+
+  crystal:
+    name: "&d水晶外壳"
+    ability1: "&d水晶外壳"
+    ability2: "&d紫水晶尖塔"
+    ability3: "&d裂隙场"
+    ability4: "&d水晶牢笼"
+    ability5: "&d共振碎裂"
+
+  magnetic:
+    name: "&7磁力牵引"
+    ability1: "&7磁力牵引"
+    ability2: "&7排斥波"
+    ability3: "&7铁握"
+    ability4: "&7极性交换"
+    ability5: "&7碎片风暴"
+    ability6: "&7磁力牢笼"
+
+  sound:
+    name: "&d声波爆发"
+    ability1: "&d声波爆发"
+    ability2: "&d共振打击"
+    ability3: "&d不和谐"
+    ability4: "&d声波面纱"
+    ability5: "&d哀嚎"
+    ability6: "&d领域展开：共振大厅"
+
+  spike:
+    name: "&7卷须打击"
+    ability1: "&7卷须打击"
+    ability2: "&7卷须爆发"
+    ability3: "&7卷须抓取"
+    ability4: "&7卷须墙"
+    ability5: "&7卷须风暴"
+
+  meteor_lord:
+    name: "&6流星射击"
+    ability1: "&6流星射击"
+    ability2: "&6流星雨"
+    ability3: "&6冲击猛击"
+    ability4: "&6重力牵引"
+    ability5: "&6流星护甲"
+    ability6: "&6灭绝事件"
+
+  wood_dragon:
+    name: "&2龙吼"
+    ability1: "&2龙吼"
+    ability2: "&2木剑舞"
+    ability3: "&2天罗地网"
+    ability4: "&2狂林冲"
+    ability5: "&2生命林"
+    ability6: "&2根王愤怒"
+
+  eternity:
+    name: "&d撕裂至虚无"
+    ability1: "&d撕裂至虚无"
+    ability2: "&d闪烁"
+
+  demon_lord:
+    name: "&5地狱之舌"
+    ability1: "&5地狱之舌"
+    ability2: "&5灵魂战士召唤"
+    ability3: "&5地狱脱狱"
+    ability4: "&5地狱火喷发"
+    ability5: "&5地狱暗影步"
+    ability6: "&5地狱裁决"
+    infernal_judgment: "&5地狱裁决 — 召唤中..."
+    infernal_judgment_done: "&5地狱裁决!"
+
+  cultivator:
+    name: "&d剑气"
+    ability1: "&d剑气"
+    ability2: "&d封印术"
+    ability3: "&d灵压"
+    ability4: "&d服气术"
+    ability5: "&d雷剑阵"
+    ability6: "&d天道裁决"
+    heavenly_judgement: "&d天道裁决 — 蓄力中..."
+    heavenly_judgement_done: "&d天道将重新裁决!"
+    interrupted: "&c服气术被攻击打断!"
+    breakthrough: "&6突破! 第{level}层 — {realm}!"
+
+  snowparting_blade:
+    name: "&b霜斩"
+    ability1: "&b霜斩"
+    ability2: "&b暴风雪步"
+    ability3: "&b破碎驱动"
+    ability4: "&b极地切断"
+
+  ice_dragon:
+    name: "&b龙吼"
+    ability1: "&b龙吼"
+    ability2: "&b冰斩"
+    ability3: "&b寒月阵"
+    ability4: "&b冰河冲"
+    ability5: "&b雪雨"
+    ability6: "&b天寒"
+
+  witcher:
+    name: "&e伊格尼"
+    ability1: "&e伊格尼"
+    ability2: "&e阿尔德"
+    ability3: "&e昆恩"
+    ability4: "&e亚克西"
+    ability5: "&e亚登"
+
+  warp:
+    name: "&d裂隙"
+    ability1: "&d裂隙"
+
+  vampire:
+    name: "&c血矛"
+    ability1: "&c血矛"
+    ability2: "&c深红冲刺"
+    ability3: "&c血新星"
+    ability4: "&c死亡之握"
+    ability5: "&c蝙蝠群"
+    ability6: "&c迷雾形态"
+    ability7: "&c暗影跳跃"
+    ability8: "&c血月"
+
+  phoenix:
+    name: "&6凤凰之翼"
+    ability1: "&6凤凰之翼"
+    ability2: "&6神圣火焰"
+    ability3: "&6羽毛风暴"
+    ability4: "&6地狱俯冲"
+    ability5: "&6太阳光束"
+    ability6: "&6飞升"
+    ability7: "&6火焰龙卷风"
+    wings: "&6✦ 凤凰之翼 — {time}秒"
+    wings_dissipate: "&e翅膀将在 {time}秒后消散!"
+    rebirth: "&6✦ 重生!"
+    rising: "&6从灰烬中崛起..."
+
+  portal:
+    name: "&5虚空箭"
+    ability1: "&5虚空箭"
+    ability2: "&5相位转移"
+    ability3: "&5镜像传送门"
+    ability4: "&5裂隙牵引"
+    ability5: "&5传送门弹幕"
+    ability6: "&5虚空步"
+    ability7: "&5闪烁冲刺"
+    ability8: "&5虚空之门"
+
+  poison:
+    name: "&2毒液箭"
+    ability1: "&2毒液箭"
+    ability2: "&2毒性斩"
+    ability3: "&2毒云"
+    ability4: "&2毒液打击"
+    ability5: "&2毒性弹幕"
+    ability6: "&2酸液护甲"
+    ability7: "&2暗影毒液"
+    ability8: "&2剧毒洪流"
+
+  gravity:
+    name: "&7引力"
+    ability1: "&7引力"
+    ability2: "&7斥力"
+    ability3: "&7碾压"
+    ability4: "&7引力区域"
+    ability5: "&7反重力"
+    ability6: "&7空间崩塌"
+    space_collapse: "&7空间崩塌!"
+    anti_gravity_broken: "&c反重力法则被打破!"
+
+  twilight_mirage:
+    name: "&d尖啸传送"
+    ability1: "&d尖啸传送"
+    ability2: "&d暮光跳跃"
+    ability3: "&d魔法飞弹"
+    ability4: "&d治愈幻影"
+    ability5: "&d幻影蚀"
+
+  lunar:
+    name: "&7月牙斩"
+    ability1: "&7月牙斩"
+    ability2: "&7月影"
+    ability3: "&7月潮"
+    ability4: "&7月蚀"
+    ability5: "&7天月阵"
+
+  nature:
+    name: "&2荆棘齐射"
+    ability1: "&2荆棘齐射"
+    ability2: "&2缠绕"
+    ability3: "&2孢子爆发"
+    ability4: "&2根矛"
+    ability5: "&2翠绿治愈"
+
+  curseweaver:
+    name: "&d裂斩"
+    ability1: "&d裂斩"
+    ability2: "&d黑闪"
+    ability3: "&d领域展开：诅咒花瓣"
+    ability4: "&d深红黎明"
+
+  shogun:
+    name: "&b二段跳"
+    ability1: "&b二段跳"
+
+  shockwave:
+    name: "&7冲击波脉冲"
+    ability1: "&7冲击波脉冲"
+    ability2: "&7地震猛击"
+    ability3: "&7震荡冲击"
+    ability4: "&7声波裂隙"
+    ability5: "&7冲击波弹幕"
+    ability6: "&7力场屏障"
+    ability7: "&7余震冲刺"
+
+  thunder_god:
+    name: "&e三连击"
+    ability1: "&e三连击"
+    ability2: "&e天罚"
+    ability3: "&e雷电牢笼"
+    ability4: "&e风暴步"
+    ability5: "&e神圣裁决"
+
+  potato:
+    name: "&6获得土豆"
+    ability1: "&6获得土豆"
+
+  unstable:
+    name: "&d裂隙"
+    ability1: "&d裂隙"
+    ability2: "&d切换维度"
+    ability3: "&d小治疗"
+
+  test:
+    name: "&c宇宙湮灭"
+    ability1: "&c宇宙湮灭"
+
+  comictest:
+    name: "&c宇宙湮灭"
+    ability1: "&c宇宙湮灭"
+    ability2: "&c漫画测试"

@@ -1963,8 +1963,8 @@ public class Comictest extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "&5&lCosmic Annihilation";
-            case 1: return "&b&lComictest";
+            case 0: return "&5&l宇宙湮灭";
+            case 1: return "&b&l漫画测试";
             default: return "&7none";
         }
     }

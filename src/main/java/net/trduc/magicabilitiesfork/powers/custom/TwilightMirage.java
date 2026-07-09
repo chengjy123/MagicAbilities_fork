@@ -489,11 +489,11 @@ public class TwilightMirage extends Power implements IdlePower {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "&9Shriek Transition";
-            case 1: return "&9Twilight Leap";
-            case 2: return "&9Magic Missile";
-            case 3: return "&9Healing Mirage";
-            case 4: return "&5Phantom Eclipse";
+            case 0: return "&9尖啸传送";
+            case 1: return "&9暮光跳跃";
+            case 2: return "&9魔法飞弹";
+            case 3: return "&9治愈幻影";
+            case 4: return "&5幻影蚀";
             default: return "&7none";
         }
     }

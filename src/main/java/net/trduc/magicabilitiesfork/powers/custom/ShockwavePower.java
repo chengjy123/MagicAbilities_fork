@@ -503,13 +503,13 @@ public class ShockwavePower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "&7Shockwave Pulse";
-            case 1: return "&7Seismic Slam";
-            case 2: return "&fConcussion Blast";
-            case 3: return "&fSonic Rift";
-            case 4: return "&7Shockwave Barrage";
-            case 5: return "&fForce Barrier";
-            case 6: return "&7Aftershock Dash";
+            case 0: return "&7冲击波脉冲";
+            case 1: return "&7地震猛击";
+            case 2: return "&f震荡冲击";
+            case 3: return "&f声波裂隙";
+            case 4: return "&7冲击波弹幕";
+            case 5: return "&f力场屏障";
+            case 6: return "&7余震冲刺";
             default: return "&7none";
         }
     }

@@ -429,7 +429,7 @@ public class AirPower extends Power implements IdlePower, Removeable {
         if (collapseActive) return;
         collapseActive = true;
 
-        p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "⬡ ATMOSPHERIC COLLAPSE ⬡");
+        p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "⬡ 大气崩塌 ⬡");
         p.getWorld().playSound(p.getLocation(), Sound.ENTITY_WARDEN_SONIC_CHARGE, 1f, 0.3f);
         p.getWorld().playSound(p.getLocation(), Sound.ENTITY_BREEZE_WIND_BURST,   0.8f, 0.2f);
 
@@ -610,14 +610,14 @@ public class AirPower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "§bPressure Shot";
-            case 1: return "§bAir Slash Chain";
-            case 2: return "§bVacuum Sphere";
-            case 3: return "§bJet Stream";
-            case 4: return "§bAir Barrage";
-            case 5: return "§bCompression Field";
-            case 6: return "§bSupersonic Step";
-            case 7: return "§b§l⬡ ATMOSPHERIC COLLAPSE §3[ULT]";
+            case 0: return "§b气压射击";
+            case 1: return "§b气刃连斩";
+            case 2: return "§b真空球";
+            case 3: return "§b喷射流";
+            case 4: return "§b空气弹幕";
+            case 5: return "§b压缩场";
+            case 6: return "§b超音速踏步";
+            case 7: return "§b§l⬡ 大气崩塌 §3[ULT]";
             default: return "§7none";
         }
     }

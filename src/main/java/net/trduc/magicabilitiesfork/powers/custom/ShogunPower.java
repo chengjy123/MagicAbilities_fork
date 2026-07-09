@@ -156,7 +156,7 @@ public class ShogunPower extends Power implements IdlePower {
     public String getAbilityName(int ability){
         switch (ability){
             case 0:
-                return "&cDouble Jump";
+                return "&c二段跳";
             default:
                 return "&7none";
         }

@@ -475,12 +475,12 @@ public class SoundPower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "&bSonic Burst";
-            case 1: return "&bResonance Strike";
-            case 2: return "&5Dissonance";
-            case 3: return "&bSonic Veil";
-            case 4: return "&8Wail";
-            case 5: return "&dDomain Expansion: Resonant Hall";
+            case 0: return "&b声波爆发";
+            case 1: return "&b共振打击";
+            case 2: return "&5不和谐";
+            case 3: return "&b声波面纱";
+            case 4: return "&8哀嚎";
+            case 5: return "&d领域展开：共振大厅";
             default: return "&7none";
         }
     }

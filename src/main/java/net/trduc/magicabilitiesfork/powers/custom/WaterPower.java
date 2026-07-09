@@ -568,13 +568,13 @@ public class WaterPower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "&bTidal Bolt";
-            case 1: return "&bWhirlpool";
-            case 2: return "&bWave Crash";
-            case 3: return "&bAqua Dash";
-            case 4: return "&b&lTsunami";
-            case 5: return "&bBubble Prison";
-            case 6: return "&b&lHydro Form";
+            case 0: return "&b潮汐箭";
+            case 1: return "&b漩涡";
+            case 2: return "&b海浪冲击";
+            case 3: return "&b水之冲刺";
+            case 4: return "&b&l海啸";
+            case 5: return "&b气泡牢笼";
+            case 6: return "&b&l水之形态";
             default: return "&7none";
         }
     }

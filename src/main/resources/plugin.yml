@@ -4,43 +4,46 @@ main: net.trduc.magicabilitiesfork.MagicAbilitiesfork
 api-version: '1.21'
 commands:
   binds:
-    description: Change ability binds
+    description: 修改技能绑定
     usage: /<command> <change/reset> <ability> <slot>
   destination:
-    description: Set destination
+    description: 设置传送目的地
     usage: /<command> <dest>
   setpower:
-    description: Set power (use 'random' to assign random power to player with NONE)
+    description: 设置技能（使用 'random' 为无技能玩家分配随机技能）
     usage: /<command> <player|@a> <power|random>
     permission: magic.admin
   enable:
-    description: Enable powers
+    description: 启用技能
     usage: /<command>
   disable:
-    description: Disable powers
+    description: 禁用技能
     usage: /<command>
   powerset:
-    description: Toggle or set your power on/off
+    description: 切换或设置技能开启/关闭
     usage: /<command> [on|off]
   powersetaura:
-    description: Toggle or set your power's idle aura particles on/off
+    description: 切换或设置技能的空闲光环粒子开启/关闭
     usage: /<command> [on|off]
+  powergui:
+    description: 打开技能管理界面
+    usage: /<command>
   combos:
-    description: Show optimized combos for a power
+    description: 显示技能的最优连招
     usage: /<command> [power]
   powerteam:
-    description: Manage power teams (create/add/remove/list/info/requests/approve/deny/invite/accept/decline)
+    description: 管理技能队伍（创建/添加/移除/列表/信息/请求/批准/拒绝/邀请/接受/拒绝）
     usage: /<command> <create|add|remove|list|info|requests|approve|deny|invite|accept|decline>
   powerteamowner:
-    description: Owner/admin team management (transfer/disband/leave/coowner)
+    description: 队伍所有者/管理员管理（转移/解散/离开/副队长）
     usage: /<command> <transfer|disband|leave|coowner>
 permissions:
   magic.admin:
-    description: Admin-level permission for MagicAbilities
+    description: MagicAbilities 的管理员权限
     default: op
   powerteam.owner:
-    description: PowerTeam owner permission
+    description: 技能队伍所有者权限
     default: op
   powerteam.coowner:
-    description: PowerTeam co-owner permission
+    description: 技能队伍副队长权限
     default: false

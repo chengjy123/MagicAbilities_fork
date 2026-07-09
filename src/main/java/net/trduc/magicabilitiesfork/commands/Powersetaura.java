@@ -22,13 +22,13 @@ public class Powersetaura implements CommandExecutor, TabCompleter {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!cmd.getName().equalsIgnoreCase("powersetaura")) return false;
         if (!(sender instanceof Player)) {
-            sender.sendMessage(ChatColor.RED + "Only players can use this command.");
+            sender.sendMessage(ChatColor.RED + "只有玩家可以使用此命令。");
             return true;
         }
 
         Player p = (Player) sender;
         if (!players.containsKey(p)) {
-            p.sendMessage(ChatColor.RED + "You don't have a power assigned.");
+            p.sendMessage(ChatColor.RED + "您没有被分配技能。");
             return true;
         }
 
@@ -42,14 +42,14 @@ public class Powersetaura implements CommandExecutor, TabCompleter {
                 case "on":  target = true;  break;
                 case "off": target = false; break;
                 default:
-                    p.sendMessage(ChatColor.RED + "Usage: /powersetaura [on|off]");
+                    p.sendMessage(ChatColor.RED + "用法: /powersetaura [on|off]");
                     return true;
             }
         }
 
         if (target == current) {
-            p.sendMessage(ChatColor.YELLOW + "Your aura is already "
-                    + (current ? ChatColor.GREEN + "enabled" : ChatColor.RED + "disabled") + ChatColor.YELLOW + ".");
+            p.sendMessage(ChatColor.YELLOW + "您的光环已经是"
+                    + (current ? ChatColor.GREEN + "开启" : ChatColor.RED + "关闭") + ChatColor.YELLOW + "状态。");
             return true;
         }
 
@@ -58,9 +58,9 @@ public class Powersetaura implements CommandExecutor, TabCompleter {
         savePlayerDataToDb(p, magicPlugin.getDbManager());
 
         if (target) {
-            p.sendMessage(ChatColor.GREEN + "Aura " + ChatColor.BOLD + "enabled" + ChatColor.RESET + ChatColor.GREEN + ".");
+            p.sendMessage(ChatColor.GREEN + "光环已" + ChatColor.BOLD + "开启" + ChatColor.RESET + ChatColor.GREEN + "。");
         } else {
-            p.sendMessage(ChatColor.RED + "Aura " + ChatColor.BOLD + "disabled" + ChatColor.RESET + ChatColor.RED + ". Your passive particle effects will no longer be displayed.");
+            p.sendMessage(ChatColor.RED + "光环已" + ChatColor.BOLD + "关闭" + ChatColor.RESET + ChatColor.RED + "。您的被动粒子效果将不再显示。");
         }
         return true;
     }
@@ -78,4 +78,3 @@ public class Powersetaura implements CommandExecutor, TabCompleter {
         return new ArrayList<>();
     }
 }
-

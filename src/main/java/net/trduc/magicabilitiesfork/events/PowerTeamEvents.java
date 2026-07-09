@@ -1,6 +1,7 @@
 package net.trduc.magicabilitiesfork.events;
 
 import net.trduc.magicabilitiesfork.data.DbManager;
+import net.trduc.magicabilitiesfork.data.MessagesManager;
 import net.trduc.magicabilitiesfork.data.PowerteamRequest;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -13,6 +14,7 @@ import java.util.List;
 
 public class PowerTeamEvents implements Listener {
     private final DbManager db;
+    private final MessagesManager messages = MessagesManager.getInstance();
 
     public PowerTeamEvents(DbManager db){
         this.db = db;
@@ -26,10 +28,10 @@ public class PowerTeamEvents implements Listener {
             for (String team : owned){
                 java.util.List<PowerteamRequest> reqs = db.listRequestsForTeam(team);
                 if (reqs != null && !reqs.isEmpty()){
-                    p.sendMessage(ChatColor.GOLD + "You have " + reqs.size() + " pending team requests for " + ChatColor.AQUA + team + ChatColor.GOLD + ".");
-                    p.sendMessage(ChatColor.GRAY + "Use /powerteam requests to view or /powerteam approve <player> /powerteam deny <player> to respond.");
+                    p.sendMessage(messages.get("events.team_request_notify", "team", team, "count", String.valueOf(reqs.size())));
+                    p.sendMessage(messages.get("events.team_request_hint"));
                     for (PowerteamRequest r : reqs){
-                        p.sendMessage(ChatColor.AQUA + r.getRequester() + " -> " + r.getTarget() + " (requested at " + new java.util.Date(r.getTs()) + ")");
+                        p.sendMessage(ChatColor.AQUA + r.getRequester() + " -> " + r.getTarget() + " (请求于 " + new java.util.Date(r.getTs()) + ")");
                     }
                 }
             }

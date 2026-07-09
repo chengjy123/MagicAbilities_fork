@@ -600,12 +600,12 @@ public class IceDragonPower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "&b龍吼 Dragon Roar";
-            case 1: return "&b冰斬 Ice Slash";
-            case 2: return "&b寒月陣 Cold Moon Formation";
-            case 3: return "&b氷河衝 Glacier Rush";
-            case 4: return "&b雪雨 Snow Rain";
-            case 5: return "&b&l天寒 Heaven's Cold";
+            case 0: return "&b龙吼";
+            case 1: return "&b冰斩";
+            case 2: return "&b寒月阵";
+            case 3: return "&b冰河冲";
+            case 4: return "&b雪雨";
+            case 5: return "&b&l天寒";
             default: return "&7none";
         }
     }

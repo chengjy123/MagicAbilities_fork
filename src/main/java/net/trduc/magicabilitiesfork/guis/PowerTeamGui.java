@@ -1,6 +1,7 @@
 package net.trduc.magicabilitiesfork.guis;
 
 import net.trduc.magicabilitiesfork.data.DbManager;
+import net.trduc.magicabilitiesfork.data.MessagesManager;
 import net.trduc.magicabilitiesfork.data.PowerteamRequest;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -22,6 +23,7 @@ public class PowerTeamGui implements Listener {
     private final DbManager db;
     private final Map<Inventory, String> invTeam = new HashMap<>();
     private final Map<Inventory, String> invOwner = new HashMap<>();
+    private final MessagesManager messages = MessagesManager.getInstance();
 
     public PowerTeamGui(DbManager db){
         this.db = db;
@@ -32,7 +34,7 @@ public class PowerTeamGui implements Listener {
         int size = 9;
         while (size < reqs.size()) size += 9;
         if (size > 54) size = 54;
-        Inventory inv = Bukkit.createInventory(null, size, ChatColor.DARK_AQUA + "Team Requests: " + ChatColor.AQUA + team);
+        Inventory inv = Bukkit.createInventory(null, size, ChatColor.translateAlternateColorCodes('&', messages.get("gui.team_requests_title", "team", team)));
 
         for (int i = 0; i < reqs.size() && i < size; i++){
             PowerteamRequest r = reqs.get(i);
@@ -42,9 +44,9 @@ public class PowerTeamGui implements Listener {
             try { meta.setOwningPlayer(Bukkit.getOfflinePlayer(r.getTarget())); } catch (Throwable ignored) {}
             meta.setDisplayName(ChatColor.YELLOW + r.getTarget());
             meta.setLore(java.util.Arrays.asList(
-                    ChatColor.GRAY + "Requested by: " + r.getRequester(),
-                    ChatColor.GREEN + "Left-click to Approve",
-                    ChatColor.RED + "Right-click to Deny"
+                    ChatColor.translateAlternateColorCodes('&', messages.get("gui.requester", "player", r.getRequester())),
+                    ChatColor.translateAlternateColorCodes('&', messages.get("gui.left_click_approve")),
+                    ChatColor.translateAlternateColorCodes('&', messages.get("gui.right_click_deny"))
             ));
             item.setItemMeta(meta);
             inv.setItem(i, item);
@@ -74,7 +76,7 @@ public class PowerTeamGui implements Listener {
         String team = invTeam.get(inv);
         String owner = invOwner.get(inv);
         if (!clicker.getName().equals(owner)){
-            clicker.sendMessage(ChatColor.RED + "Only the team owner can manage requests.");
+            clicker.sendMessage(messages.get("gui.only_owner"));
             return;
         }
         ItemStack clicked = e.getCurrentItem();
@@ -88,26 +90,26 @@ public class PowerTeamGui implements Listener {
             case SHIFT_LEFT:
                 boolean ok = db.approveRequest(team, targetName, owner);
                 if (ok){
-                    clicker.sendMessage(ChatColor.GREEN + "Approved and added " + targetName + " to " + team);
+                    clicker.sendMessage(messages.get("gui.approved", "player", targetName, "team", team));
                     Player tp = Bukkit.getPlayer(targetName);
-                    if (tp!=null) tp.sendMessage(ChatColor.GREEN + "You were added to team " + team + " by owner.");
+                    if (tp!=null) tp.sendMessage(messages.get("gui.approved_notify", "player", targetName, "team", team));
 
                     openRequestsGui(clicker, team);
                 } else {
-                    clicker.sendMessage(ChatColor.RED + "Approve failed.");
+                    clicker.sendMessage(messages.get("gui.approve_failed"));
                 }
                 break;
             case RIGHT:
             case SHIFT_RIGHT:
                 boolean ok2 = db.denyRequest(team, targetName, owner);
                 if (ok2){
-                    clicker.sendMessage(ChatColor.YELLOW + "Denied request for " + targetName);
+                    clicker.sendMessage(messages.get("gui.denied", "player", targetName));
                     Player tp2 = Bukkit.getPlayer(targetName);
-                    if (tp2!=null) tp2.sendMessage(ChatColor.RED + "Your join request to team " + team + " was denied.");
+                    if (tp2!=null) tp2.sendMessage(messages.get("gui.denied_notify", "player", targetName, "team", team));
 
                     openRequestsGui(clicker, team);
                 } else {
-                    clicker.sendMessage(ChatColor.RED + "Deny failed or no such request.");
+                    clicker.sendMessage(messages.get("gui.deny_failed"));
                 }
                 break;
             default:

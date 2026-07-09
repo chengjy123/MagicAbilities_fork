@@ -582,13 +582,13 @@ public class FirePower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "&cFire Blast";
-            case 1: return "&cInferno Barrage";
-            case 2: return "&cFlame Surge";
-            case 3: return "&c&lDivine Flame";
-            case 4: return "&4Meteor Strike";
-            case 5: return "&6Ember Shield";
-            case 6: return "&cCombustion Dash";
+            case 0: return "&c火焰冲击";
+            case 1: return "&c地狱弹幕";
+            case 2: return "&c烈焰涌动";
+            case 3: return "&c&l神圣火焰";
+            case 4: return "&4流星打击";
+            case 5: return "&6余烬护盾";
+            case 6: return "&c燃烧冲刺";
             default: return "&7none";
         }
     }

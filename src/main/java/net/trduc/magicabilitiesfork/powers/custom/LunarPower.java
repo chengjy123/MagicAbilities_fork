@@ -727,12 +727,12 @@ public class LunarPower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "Lunar Crescent";
-            case 1: return "Moon Shadow";
-            case 2: return "Lunar Tide";
-            case 3: return "Lunar Eclipse";
-            case 4: return "CELESTIAL MOON FORMATION";
-            default: return "none";
+            case 0: return "&f月牙斩";
+            case 1: return "&f月影";
+            case 2: return "&f月潮";
+            case 3: return "&f月蚀";
+            case 4: return "&f&l天月阵";
+            default: return "&7none";
         }
     }
 

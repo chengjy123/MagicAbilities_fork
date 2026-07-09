@@ -22,13 +22,13 @@ public class Powerset implements CommandExecutor, TabCompleter {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!cmd.getName().equalsIgnoreCase("powerset")) return false;
         if (!(sender instanceof Player)) {
-            sender.sendMessage(ChatColor.RED + "Only players can use this command.");
+            sender.sendMessage(ChatColor.RED + "只有玩家可以使用此命令。");
             return true;
         }
 
         Player p = (Player) sender;
         if (!players.containsKey(p)) {
-            p.sendMessage(ChatColor.RED + "You don't have a power assigned.");
+            p.sendMessage(ChatColor.RED + "您没有被分配技能。");
             return true;
         }
 
@@ -42,14 +42,14 @@ public class Powerset implements CommandExecutor, TabCompleter {
                 case "on":  target = true;  break;
                 case "off": target = false; break;
                 default:
-                    p.sendMessage(ChatColor.RED + "Usage: /powerset [on|off]");
+                    p.sendMessage(ChatColor.RED + "用法: /powerset [on|off]");
                     return true;
             }
         }
 
         if (target == current) {
-            p.sendMessage(ChatColor.YELLOW + "Your power is already "
-                    + (current ? ChatColor.GREEN + "enabled" : ChatColor.RED + "disabled") + ChatColor.YELLOW + ".");
+            p.sendMessage(ChatColor.YELLOW + "您的技能已经是"
+                    + (current ? ChatColor.GREEN + "开启" : ChatColor.RED + "关闭") + ChatColor.YELLOW + "状态。");
             return true;
         }
 
@@ -58,9 +58,9 @@ public class Powerset implements CommandExecutor, TabCompleter {
         savePlayerDataToDb(p, magicPlugin.getDbManager());
 
         if (target) {
-            p.sendMessage(ChatColor.GREEN + "✦ Power " + ChatColor.BOLD + "enabled" + ChatColor.RESET + ChatColor.GREEN + ".");
+            p.sendMessage(ChatColor.GREEN + "✦ 技能已" + ChatColor.BOLD + "开启" + ChatColor.RESET + ChatColor.GREEN + "。");
         } else {
-            p.sendMessage(ChatColor.RED + "✦ Power " + ChatColor.BOLD + "disabled" + ChatColor.RESET + ChatColor.RED + ". You won't emit passive effects or trigger abilities.");
+            p.sendMessage(ChatColor.RED + "✦ 技能已" + ChatColor.BOLD + "关闭" + ChatColor.RESET + ChatColor.RED + "。您将不会发出被动效果或触发技能。");
         }
         return true;
     }
@@ -78,4 +78,3 @@ public class Powerset implements CommandExecutor, TabCompleter {
         return new ArrayList<>();
     }
 }
-

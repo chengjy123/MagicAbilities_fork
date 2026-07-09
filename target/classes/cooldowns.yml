@@ -1,0 +1,332 @@
+
+ice:
+  bolt: 1.2
+  machine-gun: 8
+  spikes: 2.5
+  star: 14
+  multi-bolt: 5
+  slashes: 16
+  phase-change: 7
+
+warp:
+  default: 180
+
+lightning:
+  strike: 8
+  shot: 5
+  field: 22
+  transmission: 14
+  passive: 8
+  thunderclap: 18
+  ball: 28
+
+unstable:
+  heal-by-others: 300
+  heal-self: 60
+
+shogun:
+  double-jump: 3
+  dash: 10
+
+
+fire:
+  blast: 2
+  barrage: 6
+  surge: 8
+  flame: 50
+  meteor: 40
+  shield: 22
+  dash: 10
+  retaliation: 6
+
+witcher:
+  igni: 3
+  aard: 6
+  quen: 12
+  aksji: 9
+  yrden: 16
+
+nature:
+  tree: 15
+  thorn: 4
+  entangle: 18
+  spore: 14
+  lance: 16
+  heal: 30
+  retaliate: 7
+
+phoenix:
+  wings: 90
+  flame: 6
+  storm: 14
+  dive: 18
+  beam: 22
+  tornado: 28
+  ascend: 14
+  rebirth: 300
+
+twilight-mirage:
+  shriek-transition: 20
+  float: 3
+  missile: 4
+  healing: 30
+  eclipse: 22
+
+eternity:
+  immunity: 2
+  oblivion: 40
+  blink: 1
+
+curse-weaver:
+  domain: 720
+  cleave: 5
+  black: 8
+  dawn: 10
+
+sound:
+  burst:      7
+  resonance:  10
+  dissonance: 18
+  veil:       20
+  wail:       16
+  domain:     600
+
+death:
+  rend:   8
+  scythe: 12
+  step:   6
+  grasp:  18
+  shroud: 14
+  domain: 600
+
+thundergod:
+  triple: 5
+  wrath: 18
+  cage: 20
+  step: 10
+  judgment: 50
+  aura: 3
+
+wind:
+  slash: 3
+  cyclone: 18
+  burst: 8
+  step: 10
+  tempest: 25
+  leap: 14
+
+demon:
+  soulbolt: 4
+  hellfire: 22
+  cleave: 8
+  drain: 18
+  charge: 12
+  grasp: 14
+  counter: 6
+
+water:
+  bolt: 2.5
+  whirlpool: 16
+  wave: 9
+  dash: 8
+  tsunami: 35
+  bubble: 18
+  counter: 7
+  hydro: 28
+
+wither:
+  bolt: 3
+  barrage: 12
+  mark: 14
+  shatter: 8
+  storm: 25
+  rez: 90
+  aura: 1.5
+  kill: 8
+
+icedragon:
+  roar: 15
+  slash: 5
+  prison: 18
+  charge: 12
+  blizzard: 20
+  heaven: 55
+
+wooddragon:
+  roar: 15
+  blades: 6
+  net: 20
+  charge: 14
+  grove: 25
+  roots: 60
+
+snowblade:
+  slash: 2
+  step: 8
+  drive: 14
+  arctic: 35
+
+meteor:
+  shot: 3
+  rain: 20
+  slam: 9
+  gravity: 14
+  armor: 25
+  extinction: 60
+  scorch: 2
+
+cultivator:
+  sword-qi: 2.5       # Kiếm Khí — spam tầm xa xuyên nhiều kẻ
+  seal: 10            # Phong Ấn Thuật — mark + CC
+  pressure: 9         # Linh Áp — AoE 360° bùng nổ
+  meditate: 22        # Phục Khí Thuật — channel hồi HP + XP
+  thunder-array: 20   # Lôi Kiếm Trận — 5 kiếm sét orbit 5s
+  judgment: 75        # Thiên Đạo Tái Quyết — ultimate bypass armor
+
+huashan:
+  # Không tốn XP để dùng chiêu — CD dài hơn để cân bằng việc có 12 chiêu khả dụng
+  tam-tai: 4              # Slot0 click — 3 tia chém cơ bản
+  luc-hop: 14             # Slot0 sneak — buff giảm dmg + tăng tốc đánh
+  nhi-thap-tu: 11         # Slot1 click — 24 Chiêu Mai Hoa (dash-chém multi-hit)
+  mai-hoa-bo: 7           # Slot1 sneak — dash né nhanh
+  chan-thien: 13          # Slot2 click — Chấn Thiên Kiếm (stun ngắn)
+  lac-hoa: 16             # Slot2 sneak — vùng nhu hóa, giảm dmg địch
+  mai-hoa-an: 18          # Slot3 click — xuyên giáp tầm xa
+  vo-hang: 20             # Slot3 sneak — ám sát burst
+  that-thap-nhi: 28       # Slot4 click — 72 Chiêu Mai Hoa (nâng cấp diện rộng)
+  bach-hoa: 26            # Slot4 sneak — Bách Hoa Tự Tại Kiếm
+  kiem-y: 65              # Slot5 click — Ultimate AoE tinh thần
+
+demonlord:
+  inferno_blade: 5
+  summon: 20
+  prison: 18
+  devour: 14
+  shadow_step: 8
+  judgment: 60
+  fury: 15
+
+gravity:
+  pull: 8
+  push: 6
+  crush: 12
+  field: 30
+  reverse: 22
+  collapse: 70
+
+shockwave:
+  pulse:    5
+  slam:     14
+  blast:    3
+  rift:     10
+  barrage:  18
+  barrier:  22
+  dash:     9
+  counter:  4
+
+portal:
+  bolt:     2.5
+  phase:    8
+  mirror:   30
+  rift:     16
+  barrage:  12
+  step:     6
+  blink:    9
+  gate:     90
+  dodge:    6
+
+cloud:
+  bolt:     2
+  ascend:   12
+  fog:      14
+  slam:     16
+  barrage:  10
+  step:     7
+  dash:     8
+  storm:    120
+  mist:     5
+
+vampire:
+  lance:     2.5
+  dash:      8
+  nova:      12
+  grip:      10
+  swarm:     14
+  mist:      20
+  leap:      7
+  moon:      120
+  instinct:  8
+
+poison:
+  bolt:     2.5
+  slash:    8
+  cloud:    16
+  strike:   10
+  barrage:  12
+  armor:    22
+  shadow:   8
+  deluge:   120
+  counter:  1.5
+
+air:
+  shot:     2.5
+  chain:    9
+  vacuum:   16
+  jet:      10
+  barrage:  12
+  field:    20
+  step:     8
+  collapse: 120
+  counter:  3
+
+blood:
+  scythe: 3
+  puppet: 10
+  burst: 12
+  veil: 20
+  sacrifice: 16
+
+crystal:
+  shell: 22
+  spire: 8
+  field: 18
+  prison: 14
+  shatter: 10
+
+earth:
+  impact: 6
+  fortress: 20
+  boulder: 8
+  tomb: 14
+  slam: 18
+
+spike:
+  strike: 4
+  burst:  10
+  grasp:  9
+  wall:   16
+  storm:  45
+
+magnetic:
+  pull: 8
+  wave: 10
+  grip: 7
+  polarity: 2
+  scrap: 12
+  cage: 20
+
+potato:
+  get: 3
+  shoot: 0.5
+config-version: 1
+
+lunar:
+  crescent: 3
+  shadow:   10
+  tide:     14
+  eclipse:  20
+  domain:   600
+
+test:
+  annihilation: 180
+  orb: 8

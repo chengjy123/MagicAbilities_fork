@@ -1,5 +1,6 @@
 package net.trduc.magicabilitiesfork.commands;
 
+import net.trduc.magicabilitiesfork.data.MessagesManager;
 import net.trduc.magicabilitiesfork.data.PlayerData;
 import net.trduc.magicabilitiesfork.misc.ComboRegistry;
 import net.trduc.magicabilitiesfork.powers.PowerType;
@@ -17,13 +18,16 @@ import java.util.List;
 import static net.trduc.magicabilitiesfork.players.PowerPlayer.players;
 
 public class Combos implements CommandExecutor, TabCompleter {
+
+    private final MessagesManager messages = MessagesManager.getInstance();
+
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!cmd.getName().equalsIgnoreCase("combos")) return false;
         if (!(sender instanceof Player)) return false;
         Player p = (Player) sender;
         if (!players.containsKey(p)) {
-            p.sendMessage(ChatColor.RED + "Something went wrong!");
+            p.sendMessage(messages.get("general.something_wrong"));
             return true;
         }
 
@@ -34,13 +38,13 @@ public class Combos implements CommandExecutor, TabCompleter {
             try {
                 typeToShow = PowerType.valueOf(args[0].toUpperCase());
             } catch (Exception e) {
-                p.sendMessage(ChatColor.RED + "Unknown power: " + args[0]);
+                p.sendMessage(messages.get("commands.combos.unknown_power") + args[0]);
                 return true;
             }
         }
 
         List<String> combos = ComboRegistry.getCombosFor(typeToShow);
-        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7---- &aCombos for &e" + typeToShow.name() + " &7----"));
+        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7---- &a连招列表 &e" + typeToShow.name() + " &7----"));
         for (String line : combos) {
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7" + line));
         }
@@ -63,4 +67,3 @@ public class Combos implements CommandExecutor, TabCompleter {
         return Arrays.asList();
     }
 }
-

@@ -450,13 +450,13 @@ public class Curseweaver extends Power implements IdlePower, net.trduc.magicabil
     public String getAbilityName(int ability) {
         switch (ability){
             case 0:
-                return "&cCleave";
+                return "&c裂斩";
             case 1:
-                return "&8Black Flash";
+                return "&8黑闪";
             case 2:
-                return "&dDomain Expansion: Cursed Petals";
+                return "&d领域展开：诅咒花瓣";
             case 3:
-                return "&cCrimson Dawn";
+                return "&c深红黎明";
             default:
                 return "&7none";
         }

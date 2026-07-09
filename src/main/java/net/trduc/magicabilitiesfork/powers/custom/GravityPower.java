@@ -327,8 +327,8 @@ public class GravityPower extends Power implements IdlePower, Removeable {
         p.getWorld().playSound(epicenter, Sound.ENTITY_WARDEN_SONIC_BOOM,    1f, 0.3f);
         p.getWorld().playSound(epicenter, Sound.BLOCK_BEACON_ACTIVATE,        1f, 0.2f);
         p.getWorld().playSound(epicenter, Sound.ENTITY_ENDERMAN_TELEPORT,     0.8f, 0.3f);
-        p.sendMessage(org.bukkit.ChatColor.DARK_PURPLE + "" + org.bukkit.ChatColor.BOLD + "⚫SPACE COLLAPSE!");
-        hud(p, org.bukkit.ChatColor.DARK_PURPLE + "⚫ Collapsing In progress...");
+        p.sendMessage(org.bukkit.ChatColor.DARK_PURPLE + "" + org.bukkit.ChatColor.BOLD + "⚫空间崩塌!");
+        hud(p, org.bukkit.ChatColor.DARK_PURPLE + "⚫ 崩塌进行中...");
 
         collapseTask = new BukkitRunnable() {
             int t = 0;
@@ -424,7 +424,7 @@ public class GravityPower extends Power implements IdlePower, Removeable {
         }
         if (reversed && reverseTask != null) {
             cleanupReverse(p);
-            p.sendMessage(org.bukkit.ChatColor.LIGHT_PURPLE + "The law of reverse gravity is broken.!");
+            p.sendMessage(org.bukkit.ChatColor.LIGHT_PURPLE + "反重力法则被打破!");
         }
         if (event instanceof org.bukkit.event.entity.EntityDamageByEntityEvent) {
             Entity attacker = ((org.bukkit.event.entity.EntityDamageByEntityEvent) event).getDamager();
@@ -516,18 +516,18 @@ public class GravityPower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "§d⬤ Gravitational Force";
-            case 1: return "§d◎ Repulsive Force";
-            case 2: return "§5▼ Crushing";
-            case 3: return "§5⬡ Gravitational Region";
-            case 4: return "§b↑ Reverse Gravity";
-            case 5: return "§4§l⚫ Space Collapse";
+            case 0: return "§d⬤ 引力";
+            case 1: return "§d◎ 斥力";
+            case 2: return "§5▼ 碾压";
+            case 3: return "§5⬡ 引力区域";
+            case 4: return "§b↑ 反重力";
+            case 5: return "§4§l⚫ 空间崩塌";
             default: return "§7none";
         }
     }
     private void hud(Player p, String msg) {
-        String state = reversed ? " §b[REVERSE GRAVITY]" : fieldActive ? " §5[ACTIVE ZONE]" : "";
-        String bar   = "§5⚫ Gravitational Field" + state;
+        String state = reversed ? " §b[反重力]" : fieldActive ? " §5[激活区域]" : "";
+        String bar   = "§5⚫ 引力场" + state;
         String m     = msg != null ? " §r§f" + msg : "";
         p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(bar + m));
     }

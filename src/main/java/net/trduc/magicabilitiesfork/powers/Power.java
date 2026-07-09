@@ -3,6 +3,7 @@ package net.trduc.magicabilitiesfork.powers;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
+import net.trduc.magicabilitiesfork.data.MessagesManager;
 import net.trduc.magicabilitiesfork.powers.custom.*;
 import net.trduc.magicabilitiesfork.powers.executions.Execute;
 import org.bukkit.entity.Player;
@@ -119,7 +120,7 @@ public abstract class Power {
     }
 
     public String getAbilityName(int ability) {
-        return "&7none";
+        return "&7无";
     }
 
     public boolean isEnabled() {
@@ -132,9 +133,7 @@ public abstract class Power {
 
     public void onCooldownInfo(long time){
         String s = (float) ((int) time/100)/10 == 0 ? "0.1" : ((float) ((int) time/100)/10 + "");
-
-        owner.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.RED + "On cooldown for " +
-                s + "s."));
+        MessagesManager messages = MessagesManager.getInstance();
+        owner.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(messages.get("power.cooldown") + s + "秒。"));
     }
 }
-

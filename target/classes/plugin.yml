@@ -1,0 +1,49 @@
+name: MagicAbilitiesfork
+version: '1.0.1-fix'
+main: net.trduc.magicabilitiesfork.MagicAbilitiesfork
+api-version: '1.21'
+commands:
+  binds:
+    description: 修改技能绑定
+    usage: /<command> <change/reset> <ability> <slot>
+  destination:
+    description: 设置传送目的地
+    usage: /<command> <dest>
+  setpower:
+    description: 设置技能（使用 'random' 为无技能玩家分配随机技能）
+    usage: /<command> <player|@a> <power|random>
+    permission: magic.admin
+  enable:
+    description: 启用技能
+    usage: /<command>
+  disable:
+    description: 禁用技能
+    usage: /<command>
+  powerset:
+    description: 切换或设置技能开启/关闭
+    usage: /<command> [on|off]
+  powersetaura:
+    description: 切换或设置技能的空闲光环粒子开启/关闭
+    usage: /<command> [on|off]
+  powergui:
+    description: 打开技能管理界面
+    usage: /<command>
+  combos:
+    description: 显示技能的最优连招
+    usage: /<command> [power]
+  powerteam:
+    description: 管理技能队伍（创建/添加/移除/列表/信息/请求/批准/拒绝/邀请/接受/拒绝）
+    usage: /<command> <create|add|remove|list|info|requests|approve|deny|invite|accept|decline>
+  powerteamowner:
+    description: 队伍所有者/管理员管理（转移/解散/离开/副队长）
+    usage: /<command> <transfer|disband|leave|coowner>
+permissions:
+  magic.admin:
+    description: MagicAbilities 的管理员权限
+    default: op
+  powerteam.owner:
+    description: 技能队伍所有者权限
+    default: op
+  powerteam.coowner:
+    description: 技能队伍副队长权限
+    default: false

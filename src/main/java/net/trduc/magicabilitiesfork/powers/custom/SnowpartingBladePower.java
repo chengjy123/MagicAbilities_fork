@@ -494,10 +494,10 @@ public class SnowpartingBladePower extends Power implements IdlePower, Removeabl
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "&bFrost Slash &7(" + XP_SLASH   + "xp)";
-            case 1: return "&bBlizzard Step &7(" + XP_STEP  + "xp)";
-            case 2: return "&bShatter Drive &7(" + XP_DRIVE + "xp)";
-            case 3: return "&b&lArctic Severance &7(" + XP_ARCTIC + "xp)";
+            case 0: return "&b霜斩 &7(" + XP_SLASH   + "xp)";
+            case 1: return "&b暴风雪步 &7(" + XP_STEP  + "xp)";
+            case 2: return "&b破碎驱动 &7(" + XP_DRIVE + "xp)";
+            case 3: return "&b&l极地切断 &7(" + XP_ARCTIC + "xp)";
             default: return "&7none";
         }
     }

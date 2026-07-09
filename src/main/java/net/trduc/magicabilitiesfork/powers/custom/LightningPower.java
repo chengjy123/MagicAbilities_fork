@@ -527,12 +527,12 @@ public class LightningPower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "&bThunder Strike";
-            case 1: return "&bLightning Shot";
-            case 2: return "&bPlasma Field";
-            case 3: return "&bVolt Dash";
-            case 4: return "&b&lThunderclap";
-            case 5: return "&3Ball Lightning";
+            case 0: return "&b雷击";
+            case 1: return "&b闪电射击";
+            case 2: return "&b等离子场";
+            case 3: return "&b电压冲刺";
+            case 4: return "&b&l雷鸣";
+            case 5: return "&3球状闪电";
             default: return "&7none";
         }
     }

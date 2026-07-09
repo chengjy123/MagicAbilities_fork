@@ -444,12 +444,12 @@ public class WindPower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "&fGale Slash";
-            case 1: return "&fCyclone";
-            case 2: return "&fWind Burst";
-            case 3: return "&fGale Step";
-            case 4: return "&f&lTempest";
-            case 5: return "&fSky Leap";
+            case 0: return "&f疾风斩";
+            case 1: return "&f旋风";
+            case 2: return "&f风爆";
+            case 3: return "&f疾风步";
+            case 4: return "&f&l暴风雨";
+            case 5: return "&f天跃";
             default: return "&7none";
         }
     }

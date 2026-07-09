@@ -364,7 +364,7 @@ public class PoisonPower extends Power implements IdlePower, Removeable {
         if (delugeActive) return;
         delugeActive = true;
 
-        p.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "☠ TOXIC DELUGE ☠");
+        p.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "☠ 剧毒洪流 ☠");
         p.getWorld().playSound(p.getLocation(), Sound.ENTITY_WARDEN_SONIC_CHARGE, 0.8f, 0.3f);
         p.getWorld().playSound(p.getLocation(), Sound.BLOCK_SLIME_BLOCK_PLACE, 1f, 0.3f);
 
@@ -586,14 +586,14 @@ public class PoisonPower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "§2Venom Bolt";
-            case 1: return "§2Toxic Slash";
-            case 2: return "§2Poison Cloud";
-            case 3: return "§2Venom Strike";
-            case 4: return "§2Toxic Barrage";
-            case 5: return "§2Acid Armor";
-            case 6: return "§2Shadow Venom";
-            case 7: return "§2§l☠ TOXIC DELUGE §a[ULT]";
+            case 0: return "§2毒液箭";
+            case 1: return "§2毒性斩";
+            case 2: return "§2毒云";
+            case 3: return "§2毒液打击";
+            case 4: return "§2毒性弹幕";
+            case 5: return "§2酸液护甲";
+            case 6: return "§2暗影毒液";
+            case 7: return "§2§l☠ 剧毒洪流 §a[ULT]";
             default: return "§7none";
         }
     }

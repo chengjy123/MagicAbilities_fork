@@ -84,7 +84,7 @@ public class WoodDragonPower extends Power implements IdlePower, Removeable {
         p.getWorld().playSound(loc, Sound.ENTITY_ENDER_DRAGON_GROWL, 1f, 0.5f);
         p.getWorld().playSound(loc, Sound.ENTITY_RAVAGER_ROAR,       1f, 0.6f);
         p.getWorld().playSound(loc, Sound.ENTITY_RAVAGER_ATTACK,     0.7f, 0.4f);
-        p.sendMessage(ChatColor.GREEN + "✦ 龍吼 — DRAGON ROAR!");
+        p.sendMessage(ChatColor.GREEN + "✦ 龙吼!");
 
         Set<UUID> hit = new HashSet<>();
 
@@ -186,7 +186,7 @@ public class WoodDragonPower extends Power implements IdlePower, Removeable {
         Location center = getRaycastGround(p, 20);
         p.getWorld().playSound(center, Sound.BLOCK_ROOTED_DIRT_BREAK, 1f, 0.5f);
         p.getWorld().playSound(center, Sound.ENTITY_RAVAGER_ATTACK,   0.6f, 0.7f);
-        p.sendMessage(ChatColor.GREEN + "✦ 天羅地網 — HEAVEN NET!");
+        p.sendMessage(ChatColor.GREEN + "✦ 天罗地网!");
         netTraps.add(center);
 
         Set<UUID> trapped = new HashSet<>();
@@ -380,7 +380,7 @@ public class WoodDragonPower extends Power implements IdlePower, Removeable {
         Location center = p.getLocation().clone();
         p.getWorld().playSound(center, Sound.BLOCK_GRASS_PLACE,     1f, 0.6f);
         p.getWorld().playSound(center, Sound.ENTITY_PLAYER_LEVELUP, 0.7f, 1.4f);
-        p.sendMessage(ChatColor.GREEN + "✦ 生命林 — LIFE FOREST!");
+        p.sendMessage(ChatColor.GREEN + "✦ 生命林!");
 
         List<Block> groveTrees = new ArrayList<>();
         for (int i = 0; i < 8; i++) {
@@ -434,7 +434,7 @@ public class WoodDragonPower extends Power implements IdlePower, Removeable {
         p.getWorld().playSound(p.getLocation(), Sound.ENTITY_ENDER_DRAGON_GROWL,    1f, 0.3f);
         p.getWorld().playSound(p.getLocation(), Sound.ENTITY_RAVAGER_ROAR,          1f, 0.4f);
         p.getWorld().playSound(p.getLocation(), Sound.BLOCK_ROOTED_DIRT_BREAK,      1f, 0.4f);
-        p.sendMessage(ChatColor.GREEN + "✦ 根王憤怒 — " + ChatColor.BOLD + "ROOT KING'S WRATH!");
+        p.sendMessage(ChatColor.GREEN + "✦ 根王愤怒 — " + ChatColor.BOLD + "根王的愤怒!");
 
         Location center = p.getLocation().clone().add(0, 0.5, 0);
         Set<UUID> seized = new HashSet<>();
@@ -640,12 +640,12 @@ public class WoodDragonPower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "&a龍吼 Dragon Roar";
-            case 1: return "&a木劍舞 Wood Sword Dance";
-            case 2: return "&a天羅地網 Heaven Net";
-            case 3: return "&a狂林衝 Wild Forest Rush";
-            case 4: return "&a生命林 Life Forest";
-            case 5: return "&2&l根王憤怒 Root King's Wrath";
+            case 0: return "&a龙吼";
+            case 1: return "&a木剑舞";
+            case 2: return "&a天罗地网";
+            case 3: return "&a狂林冲";
+            case 4: return "&a生命林";
+            case 5: return "&2&l根王愤怒";
             default: return "&7none";
         }
     }

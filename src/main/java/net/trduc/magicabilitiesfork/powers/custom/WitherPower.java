@@ -78,7 +78,7 @@ public class WitherPower extends Power implements IdlePower, Removeable {
             case 4: if (onCd(wt_storm, p, this)) return; witherStorm(p);     addCd(wt_storm, p);   return;
             case 5:
                 if (p.getHealth() > 8 && !CooldownApi.isOnCooldown(wt_rez, p)) {
-                    p.sendMessage(ChatColor.DARK_GRAY + "Dark Resurrection: HP must be ≤ 4 to use manually!");
+                    p.sendMessage(ChatColor.DARK_GRAY + "黑暗复活: HP必须≤4才能手动使用!");
                     return;
                 }
                 if (onCd(wt_rez, p, this)) return;
@@ -220,17 +220,17 @@ public class WitherPower extends Power implements IdlePower, Removeable {
     }
     private void deathMark(Player p) {
         if (activeMarks.size() >= 2) {
-            p.sendMessage(ChatColor.DARK_GRAY + "Already reached the max of 2 Death Marks!");
+            p.sendMessage(ChatColor.DARK_GRAY + "已达到最大2个死亡标记!");
             return;
         }
 
         LivingEntity target = getNearestTarget(p, 6);
         if (target == null) {
-            p.sendMessage(ChatColor.DARK_GRAY + "No target in sight 6 block!");
+            p.sendMessage(ChatColor.DARK_GRAY + "6格范围内没有目标!");
             return;
         }
         if (activeMarks.containsKey(target.getUniqueId())) {
-            p.sendMessage(ChatColor.DARK_GRAY + "This target is already marked!");
+            p.sendMessage(ChatColor.DARK_GRAY + "该目标已被标记!");
             return;
         }
 
@@ -267,7 +267,7 @@ public class WitherPower extends Power implements IdlePower, Removeable {
         };
         activeMarks.put(target.getUniqueId(), markRunnable);
         markRunnable.runTaskTimer(magicPlugin, 0, 1);
-        p.sendMessage(ChatColor.DARK_AQUA + "☠ Death Mark placed! Detonates in 3s...");
+        p.sendMessage(ChatColor.DARK_AQUA + "☠ 死亡标记已放置! 将在3秒后引爆...");
     }
 
     private void detonateMarkAt(Location loc, LivingEntity marked, Player p) {
@@ -339,7 +339,7 @@ public class WitherPower extends Power implements IdlePower, Removeable {
 
         p.getWorld().playSound(center, Sound.ENTITY_WITHER_SPAWN,  0.7f, 0.7f);
         p.getWorld().playSound(center, Sound.ENTITY_WITHER_AMBIENT, 0.8f, 0.8f);
-        p.sendMessage(ChatColor.DARK_AQUA + "☠ Wither Storm!");
+        p.sendMessage(ChatColor.DARK_AQUA + "☠ 凋零风暴!");
 
         new BukkitRunnable() {
             int t = 0;
@@ -439,7 +439,7 @@ public class WitherPower extends Power implements IdlePower, Removeable {
         rezTriggered = true;
         p.getWorld().playSound(p.getLocation(), Sound.ENTITY_WITHER_SPAWN,  0.9f, 0.5f);
         p.getWorld().playSound(p.getLocation(), Sound.ENTITY_WITHER_AMBIENT, 1f,  0.6f);
-        p.sendMessage(ChatColor.DARK_AQUA + "☠ " + ChatColor.BOLD + "DARK RESURRECTION!");
+        p.sendMessage(ChatColor.DARK_AQUA + "☠ " + ChatColor.BOLD + "黑暗复活!");
 
         Location loc = p.getLocation().clone().add(0, 1, 0);
         Random r = new Random();
@@ -608,12 +608,12 @@ public class WitherPower extends Power implements IdlePower, Removeable {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "&3Wither Bolt";
-            case 1: return "&aSkull Barrage";
-            case 2: return "&3Death Mark";
-            case 3: return "&8Soul Shatter";
-            case 4: return "&3Wither Storm";
-            case 5: return "&8&lDark Resurrection";
+            case 0: return "&3凋零箭";
+            case 1: return "&a骷髅弹幕";
+            case 2: return "&3死亡标记";
+            case 3: return "&8灵魂碎裂";
+            case 4: return "&3凋零风暴";
+            case 5: return "&8&l黑暗复活";
             default: return "&7none";
         }
     }

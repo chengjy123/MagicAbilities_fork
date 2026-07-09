@@ -44,6 +44,7 @@ public final class MagicAbilitiesfork extends JavaPlugin {
         saveDefaultConfig();
         ConfigMigrator.migrate(this);
         config = getConfig();
+        net.trduc.magicabilitiesfork.data.MessagesManager.getInstance().init();
 
         int pluginId = 32200;
         Metrics metrics = new Metrics(this, pluginId);
@@ -63,6 +64,10 @@ public final class MagicAbilitiesfork extends JavaPlugin {
         net.trduc.magicabilitiesfork.guis.PowerTeamGui ptGui = new net.trduc.magicabilitiesfork.guis.PowerTeamGui(dbManager);
         this.powerTeamGui = ptGui;
         getServer().getPluginManager().registerEvents(ptGui, this);
+
+        net.trduc.magicabilitiesfork.guis.PowerGui powerGui = new net.trduc.magicabilitiesfork.guis.PowerGui();
+        getServer().getPluginManager().registerEvents(powerGui, this);
+
         registerCommand(new Binds(), "binds");
         registerCommand(new Destination(), "destination");
         registerCommand(new Setpower(), "setpower");
@@ -70,6 +75,7 @@ public final class MagicAbilitiesfork extends JavaPlugin {
         registerCommand(new Disable(), "disable");
         registerCommand(new Powerset(), "powerset");
         registerCommand(new Powersetaura(), "powersetaura");
+        registerCommand(new PowerGuiCommand(powerGui), "powergui");
         registerCommand(new Combos(), "combos");
         registerCommand(new PowerTeamCommand(), "powerteam");
         registerCommand(new PowerteamOwnerCommands(), "powerteamowner");
@@ -86,11 +92,9 @@ public final class MagicAbilitiesfork extends JavaPlugin {
     }
 
     private void registerCommand(CommandExecutor cmd, String cmdName){
+        getCommand(cmdName).setExecutor(cmd);
         if (cmd instanceof TabCompleter){
-            getCommand(cmdName).setExecutor(cmd);
             getCommand(cmdName).setTabCompleter((TabCompleter) cmd);
-        } else {
-            throw new RuntimeException("Provided object is not a command executor and a tab completer at the same time!");
         }
     }
 

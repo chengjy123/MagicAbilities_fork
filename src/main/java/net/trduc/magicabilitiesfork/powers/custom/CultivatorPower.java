@@ -550,7 +550,7 @@ public class CultivatorPower extends Power implements IdlePower, Removeable {
         charging = true;
         p.getWorld().playSound(p.getLocation(), Sound.BLOCK_BEACON_ACTIVATE,    1f, 0.5f);
         p.getWorld().playSound(p.getLocation(), Sound.ENTITY_EVOKER_CAST_SPELL, 0.8f, 0.6f);
-        p.sendMessage(org.bukkit.ChatColor.GOLD + "⚡ 天道裁決 — Charging...");
+        p.sendMessage(org.bukkit.ChatColor.GOLD + "⚡ 天道裁决 — 蓄力中...");
         p.addPotionEffect(new PotionEffect(PotionEffectType.RESISTANCE, 55, 255, false, false));
 
         chargeTask = new BukkitRunnable() {
@@ -592,7 +592,7 @@ public class CultivatorPower extends Power implements IdlePower, Removeable {
         p.removePotionEffect(PotionEffectType.RESISTANCE);
         p.getWorld().playSound(p.getLocation(), Sound.ENTITY_LIGHTNING_BOLT_THUNDER, 1f, 0.6f);
         p.getWorld().playSound(p.getLocation(), Sound.BLOCK_BEACON_DEACTIVATE,       1f, 0.8f);
-        p.sendMessage(org.bukkit.ChatColor.GOLD + "⚡ " + org.bukkit.ChatColor.BOLD + "THE WAY OF HEAVEN WILL RE-DETERMINE!");
+        p.sendMessage(org.bukkit.ChatColor.GOLD + "⚡ " + org.bukkit.ChatColor.BOLD + "天道将重新裁决!");
 
         final Location  start  = p.getEyeLocation().clone();
         LivingEntity    target = getInSight(p, 35, 0.4);
@@ -711,7 +711,7 @@ public class CultivatorPower extends Power implements IdlePower, Removeable {
             BukkitRunnable ct = chanTask;
             chanTask = null;
             try { ct.cancel(); } catch (Exception ignored) {}
-            ex.getPlayer().sendMessage(org.bukkit.ChatColor.RED + "Breath Recovery interrupted by attack!");
+            ex.getPlayer().sendMessage(org.bukkit.ChatColor.RED + "服气术被攻击打断!");
             addCd(cv_medi, ex.getPlayer(), 0.5);
         }
     }
@@ -783,11 +783,11 @@ public class CultivatorPower extends Power implements IdlePower, Removeable {
     }
 
     private void onBreakthrough(Player p, int newStage) {
-        String[] names = {"", "Qi Refining", "Foundation Building", "Golden Core", "Nascent Soul", "Spirit Transformation", "Great Vehicle"};
+        String[] names = {"", "炼气", "筑基", "金丹", "元婴", "化神", "大乘"};
         String   name  = names[Math.min(newStage, 6)];
 
         p.sendMessage(org.bukkit.ChatColor.GOLD + "✦ " + org.bukkit.ChatColor.BOLD
-                + "BREAKTHROUGH! Floor " + newStage + " — " + name + "!");
+                + "突破! 第" + newStage + "层 — " + name + "!");
         p.getWorld().playSound(p.getLocation(), Sound.ENTITY_PLAYER_LEVELUP,         1f,   0.6f);
         p.getWorld().playSound(p.getLocation(), Sound.ENTITY_LIGHTNING_BOLT_THUNDER, 0.8f, 0.7f);
         p.getWorld().playSound(p.getLocation(), Sound.BLOCK_BEACON_ACTIVATE,         1f,   1.2f);
@@ -913,21 +913,21 @@ public class CultivatorPower extends Power implements IdlePower, Removeable {
     public String getAbilityName(int ability) {
         String lock = isSlotUnlocked(ability) ? "" : " §7[Floor " + stageNeeded(ability) + "]";
         switch (ability) {
-            case 0: return "§a劍氣 Sword Qi"           + lock;
-            case 1: return "§a封印術 Seal Technique"           + lock;
-            case 2: return "§a靈壓 Spirit Pressure"             + lock;
-            case 3: return "§a服氣術 Breath Recovery"           + lock;
-            case 4: return "§e雷劍陣 Thunder Sword Formation"     + lock;
-            case 5: return "§6§l天道裁決"                + lock;
+            case 0: return "§a剑气"           + lock;
+            case 1: return "§a封印术"           + lock;
+            case 2: return "§a灵压"             + lock;
+            case 3: return "§a服气术"           + lock;
+            case 4: return "§e雷剑阵"     + lock;
+            case 5: return "§6§l天道裁决"                + lock;
             default: return "§7none";
         }
     }
 
     private void hud(Player p, String msg) {
-        String[] names     = {"", "Qi Refining", "Foundation Building", "Golden Core", "Nascent Soul", "Spirit Transformation", "Great Vehicle"};
+        String[] names     = {"", "炼气", "筑基", "金丹", "元婴", "化神", "大乘"};
         String   stageName = names[Math.min(maxReachedStage, 6)];
         String   color     = maxReachedStage >= 5 ? "§6" : maxReachedStage >= 3 ? "§a" : "§7";
-        String   bar       = color + "✦ " + stageName + " §7[Floor " + maxReachedStage + "/6]";
+        String   bar       = color + "✦ " + stageName + " §7[第" + maxReachedStage + "/6层]";
         String   m         = msg != null ? " §r §f" + msg : "";
         p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(bar + m));
     }

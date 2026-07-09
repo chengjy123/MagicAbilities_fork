@@ -111,7 +111,7 @@ public class BloodPower extends Power implements IdlePower {
         if (onCd(CD_PUPPET, p, this)) return;
         LivingEntity puppet = getInSight(p, 12, 0.92);
         if (puppet == null) puppet = getNearestTarget(p, 6);
-        if (puppet == null) { sendActionBar(p, "§cNo target!"); return; }
+        if (puppet == null) { sendActionBar(p, "§c没有目标!"); return; }
         if (!costHp(p, 3.0)) return;
 
         final LivingEntity target = puppet;
@@ -168,7 +168,7 @@ public class BloodPower extends Power implements IdlePower {
     private void sanguineBurst(Player p) {
         if (onCd(CD_BURST, p, this)) return;
         LivingEntity target = getInSight(p, 14, 0.93);
-        if (target == null) { sendActionBar(p, "§cNo target!"); return; }
+        if (target == null) { sendActionBar(p, "§c没有目标!"); return; }
         if (!costHp(p, 5.0)) return;
 
         final LivingEntity finalTarget = target;
@@ -272,12 +272,12 @@ public class BloodPower extends Power implements IdlePower {
     private void bloodSacrifice(Player p) {
         if (onCd(CD_SACRIFICE, p, this)) return;
         double current = p.getHealth();
-        if (current <= 3.0) { sendActionBar(p, "§cNot enough HP to sacrifice!"); return; }
+        if (current <= 3.0) { sendActionBar(p, "§cHP不足，无法献祭!"); return; }
 
         double sacrifice = Math.max(2.0, Math.min(8.0, current * 0.30));
 
         if (current - sacrifice < 1.0) sacrifice = current - 1.0;
-        if (sacrifice < 1.0) { sendActionBar(p, "§cNot enough HP to sacrifice!"); return; }
+        if (sacrifice < 1.0) { sendActionBar(p, "§cHP不足，无法献祭!"); return; }
 
         safeSetHealth(p, current - sacrifice);
         final double damage = sacrifice * 2.2;
@@ -304,7 +304,7 @@ public class BloodPower extends Power implements IdlePower {
         p.getWorld().playSound(origin, Sound.ENTITY_WITHER_AMBIENT, 0.8f, 1.5f);
         p.getWorld().playSound(origin, Sound.ENTITY_GENERIC_EXPLODE, 0.6f, 0.3f);
 
-        sendActionBar(p, String.format("§c⚠ Sacrificed §f%.1f §cHP — dealt §f%.1f §cdamage!", sacrifice, damage));
+        sendActionBar(p, String.format("§c⚠ 献祭 §f%.1f §cHP — 造成 §f%.1f §c伤害!", sacrifice, damage));
         addCd(CD_SACRIFICE, p);
     }
 
@@ -342,18 +342,18 @@ public class BloodPower extends Power implements IdlePower {
     @Override
     public String getAbilityName(int ability) {
         switch (ability) {
-            case 0: return "§cBleeding Scythe";
-            case 1: return "§cBlood Puppet";
-            case 2: return "§cSanguine Burst";
-            case 3: return "§cCrimson Veil";
-            case 4: return "§cBlood Sacrifice";
+            case 0: return "§c出血镰刀";
+            case 1: return "§c血傀儡";
+            case 2: return "§c血爆";
+            case 3: return "§c深红面纱";
+            case 4: return "§c血祭";
             default: return "§7none";
         }
     }
 
     private boolean costHp(Player p, double amount) {
         if (p.getHealth() <= amount + 1.0) {
-            sendActionBar(p, "§cNot enough HP!");
+            sendActionBar(p, "§cHP不足!");
             p.getWorld().playSound(p.getLocation(), Sound.BLOCK_BONE_BLOCK_HIT, 0.8f, 0.5f);
             return false;
         }

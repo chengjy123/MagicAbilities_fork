@@ -113,7 +113,7 @@ public class Eternity extends Power implements IdlePower {
     private void ult(Player p) {
         p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 400, 1));
         tornToOblivion(p);
-        p.sendMessage(ChatColor.LIGHT_PURPLE + "Slice them into pieces!");
+        p.sendMessage(ChatColor.LIGHT_PURPLE + "把它们切成碎片!");
         onUlt=true;
         new BukkitRunnable() {
             @Override
@@ -266,9 +266,9 @@ public class Eternity extends Power implements IdlePower {
     public String getAbilityName(int ability) {
         switch (ability){
             case 0:
-                return "&dTorn To Oblivion";
+                return "&d撕裂至虚无";
             case 1:
-                return "&dBlink";
+                return "&d闪烁";
             default:
                 return "&7none";
         }
