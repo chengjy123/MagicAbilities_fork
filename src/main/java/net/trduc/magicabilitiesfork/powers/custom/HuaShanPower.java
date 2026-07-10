@@ -18,6 +18,7 @@ import org.bukkit.util.Vector;
 
 import java.util.*;
 
+import net.trduc.magicabilitiesfork.data.MessagesManager;
 import static net.trduc.magicabilitiesfork.MagicAbilitiesfork.*;
 import static net.trduc.magicabilitiesfork.misc.PowerUtils.*;
 import static net.trduc.magicabilitiesfork.data.PlayerData.getPlayerData;
@@ -71,6 +72,7 @@ public class HuaShanPower extends Power implements IdlePower, Removeable {
 
     private BukkitRunnable hudTask = null;
     private int tickCounter = 0;
+    private final MessagesManager messages = MessagesManager.getInstance();
 
     public HuaShanPower(Player owner) {
         super(owner);
@@ -496,12 +498,12 @@ public class HuaShanPower extends Power implements IdlePower, Removeable {
     }
 
     private String stageNameForXp(int xp) {
-        if (xp >= UNLOCK_5) return "Perfect Sword Intent";
-        if (xp >= UNLOCK_4) return "Supreme";
-        if (xp >= UNLOCK_3) return "Elder";
-        if (xp >= UNLOCK_2) return "Direct Disciple";
-        if (xp >= UNLOCK_1) return "Inner Disciple";
-        return "Outer Disciple";
+        if (xp >= UNLOCK_5) return ChatColor.translateAlternateColorCodes('&', messages.get("powers.huashan.stage5"));
+        if (xp >= UNLOCK_4) return ChatColor.translateAlternateColorCodes('&', messages.get("powers.huashan.stage4"));
+        if (xp >= UNLOCK_3) return ChatColor.translateAlternateColorCodes('&', messages.get("powers.huashan.stage3"));
+        if (xp >= UNLOCK_2) return ChatColor.translateAlternateColorCodes('&', messages.get("powers.huashan.stage2"));
+        if (xp >= UNLOCK_1) return ChatColor.translateAlternateColorCodes('&', messages.get("powers.huashan.stage1"));
+        return ChatColor.translateAlternateColorCodes('&', messages.get("powers.huashan.stage0"));
     }
 
     private boolean isSlotUnlocked(Player p, int slot) {

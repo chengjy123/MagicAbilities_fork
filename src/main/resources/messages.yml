@@ -548,3 +548,12 @@ powers:
     sky_collapsing: "&c天空正在崩塌..."
     cosmic_annihilation_done: "&6✦ 宇宙湮灭!"
     channeling_warning: "&5⚠ {caster} 正在附近引导灾难性的力量..."
+
+  huashan:
+    name: "&d华山剑法"
+    stage0: "&7外门弟子"
+    stage1: "&a内门弟子"
+    stage2: "&b亲传弟子"
+    stage3: "&6长老"
+    stage4: "&d至尊"
+    stage5: "&d完美剑意"
